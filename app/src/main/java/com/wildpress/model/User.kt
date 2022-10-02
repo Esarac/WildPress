@@ -1,3 +1,3 @@
-package com.example.test170822.feed
+package com.wildpress.model
 
 class User (val username: String, val link: String)

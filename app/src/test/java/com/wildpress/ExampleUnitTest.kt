@@ -1,4 +1,4 @@
-package com.example.test170822
+package com.wildpress
 
 import org.junit.Test
 

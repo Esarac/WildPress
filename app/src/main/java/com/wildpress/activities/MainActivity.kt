@@ -1,12 +1,13 @@
-package com.example.test170822
+package com.wildpress.activities
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.widget.Button
 import android.widget.EditText
-import com.example.test170822.models.Exercise
+import com.wildpress.R
+import com.wildpress.model.Exercise
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         this.exercises.add(Exercise("Incline up", "Exercise n2"))
         this.exercises.add(Exercise("Decline up", "Exercise n3"))
 
-        this.layoutManager = LinearLayoutManager(this)
+        this.layoutManager =
+            LinearLayoutManager(this)
         this.adapter = ExerciseAdapter(this.exercises)
         this.recyclerView = findViewById(R.id.exerciseRecyclerView)
         this.recyclerView.layoutManager = this.layoutManager

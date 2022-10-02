@@ -1,3 +1,3 @@
-package com.example.test170822.models
+package com.wildpress.model
 
 class Exercise(val name: String = "", val description: String = "")
