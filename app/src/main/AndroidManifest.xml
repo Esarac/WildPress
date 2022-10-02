@@ -13,6 +13,14 @@
         android:theme="@style/Theme.Wildpress"
         tools:targetApi="31">
         <activity
+            android:name=".activities.CreateDietActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.DietActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activities.ProfileActivity"
             android:exported="false">
             <meta-data
@@ -28,7 +36,7 @@
         </activity>
         <activity
             android:name=".activities.DietActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

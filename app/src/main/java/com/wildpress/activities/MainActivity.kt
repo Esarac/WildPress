@@ -25,9 +25,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         Toolbar().showToolbar(this, "Workout", false)
-
-
 
         this.exercises.add(Exercise("Push up", "Exercise n1"))
         this.exercises.add(Exercise("Incline up", "Exercise n2"))
