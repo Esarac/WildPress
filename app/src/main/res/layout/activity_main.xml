@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+    <include
+        android:id="@+id/toolbarWorkout"
+        layout='@layout/toolbar'/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/exerciseRecyclerView"
         android:layout_width="391dp"
@@ -39,7 +43,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/createButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarWorkout" />
 
     <EditText
         android:id="@+id/descriptionEditText"

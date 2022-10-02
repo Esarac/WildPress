@@ -7,6 +7,7 @@
     tools:context=".activities.DietActivity">
 
     <include
-        layout="@layout/toolbar"/>
+        android:id="@+id/toolbarDiet"
+        layout='@layout/toolbar'/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

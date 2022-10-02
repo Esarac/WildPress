@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.widget.Button
 import android.widget.EditText
 import com.wildpress.R
+import com.wildpress.components.Toolbar
 import com.wildpress.model.Exercise
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Toolbar().showToolbar(this, "Workout", false)
+
+
 
         this.exercises.add(Exercise("Push up", "Exercise n1"))
         this.exercises.add(Exercise("Incline up", "Exercise n2"))
@@ -44,6 +48,5 @@ class MainActivity : AppCompatActivity() {
             val exercise = Exercise(nameEditText.text.toString(), descriptionEditText.text.toString())
             adapter.addExercise(exercise)
         }
-
     }
 }
