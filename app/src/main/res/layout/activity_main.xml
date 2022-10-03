@@ -29,7 +29,8 @@
         app:menu="@menu/bottom_navbar"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconSize="@dimen/bottom_navigation_icon_size"
         style="@style/BottomNavbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

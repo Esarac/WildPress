@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">wildpress</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="FeedNavBar">Feed</string>
+    <string name="DietNavBar">Diet</string>
+    <string name="WorkoutNavBar">Workout</string>
+    <string name="ScheduleNavBar">Schedule</string>
+    <string name="ProfileNavBar">Profile</string>
+    <string name="createDietBtn">Create a new diet</string>
+    <string name="dietsTitle">Your diets</string>
+
 </resources>
