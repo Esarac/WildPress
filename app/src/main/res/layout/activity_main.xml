@@ -7,55 +7,29 @@
     tools:context=".activities.MainActivity">
 
     <include
-        android:id="@+id/toolbarWorkout"
+        android:id="@+id/toolbarActionBar"
         layout='@layout/toolbar'/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/exerciseRecyclerView"
-        android:layout_width="391dp"
+    <FrameLayout
+        android:id="@+id/frameContainer"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarActionBar" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionEditText" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_navbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        app:labelVisibilityMode="labeled"
+        style="@style/BottomNavbar"/>
 
-    <Button
-        android:id="@+id/createButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/descriptionEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nameEditText"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/createButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarWorkout" />
-
-    <EditText
-        android:id="@+id/descriptionEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Description"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/createButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

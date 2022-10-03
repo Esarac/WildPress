@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/feedFragment"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Feed"/>
+    <item
+        android:id="@+id/dietFragment"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Diet"/>
+    <item
+        android:id="@+id/workoutFragment"
+        android:icon="@android:drawable/ic_delete"
+        android:title="Workout"/>
+    <item
+        android:id="@+id/scheduleFragment"
+        android:icon="@android:drawable/ic_lock_idle_alarm"
+        android:title="Schedule"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@android:drawable/arrow_up_float"
+        android:title="Profile"/>
+</menu>

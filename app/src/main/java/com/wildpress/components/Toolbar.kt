@@ -9,4 +9,8 @@ class Toolbar {
         activity.supportActionBar?.title = title
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(backButton)
     }
+
+    fun updateToolbar(activity: AppCompatActivity, title: String) {
+        activity.supportActionBar?.title = title
+    }
 }
