@@ -16,17 +16,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Toolbar().showToolbar(this, "Workout", false)
+        //Properties
         this.bottomBar = findViewById(R.id.bottomNavbar)
+
+        //Initialize Toolbar and Bottom Navbar
+        Toolbar().showToolbar(this, "Workout", false)
+        bottomBar.selectedItemId = R.id.workoutFragment
         replaceFragment(Workout())
 
+        //Listeners
         bottomBar.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.feedFragment -> replaceFragment(Feed())
-                R.id.dietFragment -> replaceFragment(Diet())
-                R.id.workoutFragment -> replaceFragment(Workout())
+                R.id.feedFragment -> {
+                    replaceFragment(Feed())
+                    Toolbar().updateToolbar(this, "Feed")
+                }
+                R.id.dietFragment -> {
+                    replaceFragment(Diet())
+                    Toolbar().updateToolbar(this, "Diet")
+                }
+                R.id.workoutFragment -> {
+                    replaceFragment(Workout())
+                    Toolbar().updateToolbar(this, "Workout")
+                }
                 R.id.scheduleFragment -> {
                     replaceFragment(Schedule())
+                    Toolbar().updateToolbar(this, "Schedule")
                 }
                 R.id.profileFragment -> {
                     replaceFragment(Profile())

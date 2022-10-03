@@ -5,56 +5,55 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.wildpress.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.wildpress.activities.ExerciseAdapter
+import com.wildpress.databinding.FragmentWorkoutBinding
+import com.wildpress.model.Exercise
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Workout.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Workout : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    //Binding
+    private var _binding : FragmentWorkoutBinding? = null
+    private val binding get() = _binding!!
+
+    //Properties
+    private lateinit var layoutManager: RecyclerView.LayoutManager
+    private lateinit var adapter: ExerciseAdapter
+    private var exercises = ArrayList<Exercise>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+        this.exercises.add(Exercise("Push up", "Exercise n1"))
+        this.exercises.add(Exercise("Incline up", "Exercise n2"))
+        this.exercises.add(Exercise("Decline up", "Exercise n3"))
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_workout, container, false)
+        _binding = FragmentWorkoutBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Workout.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Workout().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        this.layoutManager = LinearLayoutManager(context)
+        this.adapter = ExerciseAdapter(this.exercises)
+        binding.exerciseRecyclerView.layoutManager = this.layoutManager
+        binding.exerciseRecyclerView.adapter = this.adapter
+
+        //Listeners
+        binding.createButton.setOnClickListener {
+            adapter.addExercise(Exercise(binding.nameEditText.text.toString(), binding.descriptionEditText.text.toString()))
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

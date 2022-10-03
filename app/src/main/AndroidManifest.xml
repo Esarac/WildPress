@@ -22,7 +22,7 @@
         <activity
             android:name=".activities.CreateDietActivity"
             android:exported="false"
-            android:parentActivityName=".activities.DietActivity" >
+            android:parentActivityName=".activities.MainActivity" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
