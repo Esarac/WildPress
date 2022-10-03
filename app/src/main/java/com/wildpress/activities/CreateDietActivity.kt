@@ -12,4 +12,9 @@ class CreateDietActivity : AppCompatActivity() {
 
         Toolbar().showToolbar(this, "New Diet", true)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }
