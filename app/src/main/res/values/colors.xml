@@ -10,4 +10,5 @@
     <color name="primary">#232323</color>
     <color name="secondary">#FF6624</color>
     <color name="accent">#FFFFFFFF</color>
+    <color name="imageBorderColor">#d9d9d9</color>
 </resources>
