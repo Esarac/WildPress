@@ -8,6 +8,117 @@
 
     <include
         android:id="@+id/toolbarCreateDiet"
-        layout='@layout/toolbar'/>
+        layout='@layout/toolbar' />
+
+    <TextView
+        android:id="@+id/dietCreNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/dietCreDietName"
+        android:theme="@style/BlackTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCreateDiet" />
+
+    <EditText
+        android:id="@+id/dietCreNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:ems="10"
+        android:hint="@string/dietCreDietNameHint"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dietCreNameText" />
+
+    <TextView
+        android:id="@+id/dietCreDescriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/dietCreDescription"
+        android:theme="@style/BlackTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dietCreNameEditText" />
+
+    <EditText
+        android:id="@+id/dietCreDescriptionEditTex"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/dietCreDietDescriptionHint"
+        android:inputType="textMultiLine"
+        android:minHeight="100dp"
+        android:maxHeight="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dietCreDescriptionText" />
+
+    <TextView
+        android:id="@+id/dietCreIngredientsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/dietCreIngredients"
+        android:theme="@style/BlackTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dietCreDescriptionEditTex" />
+
+    <EditText
+        android:id="@+id/dietCreIngredientsEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/dietCreDietIngredientsHint"
+        android:inputType="textMultiLine"
+        android:minHeight="100dp"
+        android:maxHeight="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dietCreIngredientsText" />
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dietCreIngredientsEditText">
+
+        <Button
+            android:id="@+id/dietCreSubmitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:text="@string/dietCreSubmitBtn"
+            android:theme="@style/ButtonTheme"
+            app:layout_gravity="fill_horizontal" />
+
+        <Button
+            android:id="@+id/dietCreCancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:text="@string/dietCreCancelBtn"
+            android:theme="@style/ButtonTheme"
+            app:layout_gravity="fill_horizontal" />
+
+    </TableRow>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

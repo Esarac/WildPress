@@ -8,5 +8,13 @@
     <string name="ProfileNavBar">Profile</string>
     <string name="createDietBtn">Create a new diet</string>
     <string name="dietsTitle">Your diets</string>
+    <string name="dietCreDietName">Diet Name</string>
+    <string name="dietCreDietNameHint">Enter the name of the diet</string>
+    <string name="dietCreDescription">Description</string>
+    <string name="dietCreDietDescriptionHint">Enter the description of the diet</string>
+    <string name="dietCreIngredients">Ingredients</string>
+    <string name="dietCreDietIngredientsHint">Enter the ingredients of the diet</string>
+    <string name="dietCreSubmitBtn">Submit</string>
+    <string name="dietCreCancelBtn">Cancel</string>
 
 </resources>
