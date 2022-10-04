@@ -16,5 +16,7 @@
     <string name="dietCreDietIngredientsHint">Enter the ingredients of the diet</string>
     <string name="dietCreSubmitBtn">Submit</string>
     <string name="dietCreCancelBtn">Cancel</string>
+    <string name="workoutCreateWorkoutBtn">Create workout</string>
+    <string name="workoutExerciseBtn">Exercise</string>
 
 </resources>
