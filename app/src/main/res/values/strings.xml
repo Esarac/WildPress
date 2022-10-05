@@ -12,7 +12,7 @@
     <string name="loginForgotPassw"><u>Forgot your password?</u></string>
     <string name="loginAppName"><font color="#FFFFFF">Wild</font><font color="#FF6624">Press</font></string>
     <!-- Sig in -->
-    <string name="signInSignInBtn">Sig In</string>
+    <string name="signInSignInBtn">Sign In</string>
     <string name="signInCancelBtn">Cancel</string>
     <!-- Feed -->
     <string name="FeedNavBar">Feed</string>
