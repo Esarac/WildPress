@@ -18,5 +18,15 @@
     <string name="dietCreCancelBtn">Cancel</string>
     <string name="workoutCreateWorkoutBtn">Create workout</string>
     <string name="workoutExerciseBtn">Exercise</string>
+    <string name="loginUserNameHint">Username</string>
+    <string name="loginPasswordHint">Password</string>
+    <string name="loginLoginBtn">Log in</string>
+    <string name="loginJoinArmy">Join the army</string>
+    <string name="loginGoogle">Sign in with Google</string>
+    <string name="loginSignInBtn">Sign in</string>
+    <string name="loginRememberMe">Remember me</string>
+    <string name="loginForgotPassw"><u>Forgot your password?</u></string>
+    <string name="loginAppName"><font color="#232323">Wild</font><font color="#FF6624">Press</font>
+    </string>
 
 </resources>
