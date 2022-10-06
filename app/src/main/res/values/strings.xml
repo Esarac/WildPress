@@ -51,4 +51,9 @@
     <string name="ScheduleNavBar">Schedule</string>
     <!-- Profile -->
     <string name="ProfileNavBar">Profile</string>
+    <string name="profFollowers">Followers</string>
+    <string name="profFollowing">Following</string>
+    <string name="profRoutines">Published routines</string>
+    <string name="profFavoriteExercise">Favorite exercise</string>
+    <string name="profLeague">League</string>
 </resources>

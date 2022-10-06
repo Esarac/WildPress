@@ -8,52 +8,8 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="5dp">
 
-    <TextView
-        android:id="@+id/leagueLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="108dp"
-        android:text="League"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileLeagueT" />
-
-    <TextView
-        android:id="@+id/routinesLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:text="Published routines"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routinesNumber" />
-
-    <TextView
-        android:id="@+id/routinesNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="116dp"
-        android:text="99+"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileName" />
-
-    <TextView
-        android:id="@+id/profileLeagueT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="60dp"
-        android:text="Diamond"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routinesLabel" />
-
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/profProfilePicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -65,80 +21,161 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/profileName"
+        android:id="@+id/profNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Yojam Satizabal"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:theme="@style/ProfileTextTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/profProfilePicture" />
 
-    <TextView
-        android:id="@+id/followersNumber"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:id="@+id/signInTableLayoutFields"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
-        android:text="2234"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="42dp"
+        android:stretchColumns="*"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileName" />
+        app:layout_constraintTop_toBottomOf="@+id/profNameTextView">
 
-    <TextView
-        android:id="@+id/followersLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:text="Followers"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/followersNumber" />
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/followingNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="12dp"
-        android:text="15"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/followersLabel" />
+            <TextView
+                android:id="@+id/profFollowersNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2234"
+                android:layout_weight=".5"
+                android:theme="@style/ProfileTextTitle" />
 
-    <TextView
-        android:id="@+id/followingLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:text="Following"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/followingNumber" />
+            <TextView
+                android:id="@+id/profRoutinesNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="99+"
+                android:layout_weight=".5"
+                android:theme="@style/ProfileTextTitle" />
 
-    <TextView
-        android:id="@+id/favoriteExcerciseLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:text="Favorite Excercise"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favoriteExcersiceType" />
+        </TableRow>
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/favoriteExcersiceType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="12dp"
-        android:text="Push up"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/followingLabel" />
+            <TextView
+                android:id="@+id/profFollowersText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:text="@string/profFollowers"
+                android:theme="@style/ProfileText" />
+
+            <TextView
+                android:id="@+id/profRoutines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:text="@string/profRoutines"
+                android:theme="@style/ProfileText" />
+        </TableRow>
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/proFollowingNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15"
+                android:layout_weight=".5"
+                android:theme="@style/ProfileTextTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profFollowersText" />
+
+            <TextView
+                android:id="@+id/profileLeagueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diamond"
+                android:layout_weight=".5"
+                android:theme="@style/ProfileTextTitle2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profRoutines" />
+        </TableRow>
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/profFollowingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Following"
+                android:layout_weight=".5"
+                android:theme="@style/ProfileText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/proFollowingNumber" />
+
+            <TextView
+                android:id="@+id/profLeague"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profLeague"
+                android:theme="@style/ProfileText"
+                android:layout_weight=".5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileLeagueText" />
+        </TableRow>
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/profFavoriteExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Push up"
+                android:theme="@style/ProfileTextTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_weight="1"
+                app:layout_constraintTop_toBottomOf="@+id/profFollowingText" />
+        </TableRow>
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/favoriteExcerciseLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profFavoriteExercise"
+                android:theme="@style/ProfileText"
+                android:layout_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profFavoriteExercise" />
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
