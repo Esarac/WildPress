@@ -12,6 +12,20 @@
     <string name="loginForgotPassw"><u>Forgot your password?</u></string>
     <string name="loginAppName"><font color="#FFFFFF">Wild</font><font color="#FF6624">Press</font></string>
     <!-- Sig in -->
+    <string name="signInEmailAddress"><font color='#000000'>Email Address</font><font color='#FF6624'>*</font></string>
+    <string name="signInEmailAddressHint">Enter your email</string>
+    <string name="signInUsername"><font color='#000000'>Username</font><font color='#FF6624'>*</font></string>
+    <string name="signInUsernameHint">Enter your username</string>
+    <string name="signInFirstName">First name</string>
+    <string name="signInFirstNameHint">Enter your first name</string>
+    <string name="signInLastName">Last name</string>
+    <string name="signInLastNameHint">Enter your last name</string>
+    <string name="signInPassword"><font color='#000000'>Password</font><font color='#FF6624'>*</font></string>
+    <string name="signInPasswordHint">Enter your password</string>
+    <string name="signInConfirmPassword"><font color='#000000'>Confirm password</font><font color='#FF6624'>*</font></string>
+    <string name="signInConfirmPasswordHint">Enter your password</string>
+    <string name="signInAboutMe">About me</string>
+    <string name="signInAboutMeHint">Type here</string>
     <string name="signInSignInBtn">Sign In</string>
     <string name="signInCancelBtn">Cancel</string>
     <!-- Feed -->

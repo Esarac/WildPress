@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
         binding.logSignBtn.setOnClickListener {
-            startActivity(Intent(this, SigInActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
         }
         binding.logForgotBtn.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
