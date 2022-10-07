@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wildpress.activities.ExerciseAdapter
+import com.wildpress.components.CardAdapter
 import com.wildpress.databinding.FragmentWorkoutBinding
 import com.wildpress.model.Exercise
 
@@ -19,7 +20,7 @@ class Workout : Fragment() {
 
     //Properties
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private lateinit var adapter: ExerciseAdapter
+    private lateinit var adapter: CardAdapter<Exercise>
     private var exercises = ArrayList<Exercise>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,13 +43,13 @@ class Workout : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.layoutManager = LinearLayoutManager(context)
-        this.adapter = ExerciseAdapter(this.exercises)
+        this.adapter = CardAdapter(this.exercises)
         binding.exerciseRecyclerView.layoutManager = this.layoutManager
         binding.exerciseRecyclerView.adapter = this.adapter
 
         //Listeners
         binding.createButton.setOnClickListener {
-            adapter.addExercise(Exercise(binding.nameEditText.text.toString(), binding.descriptionEditText.text.toString()))
+            adapter.addItem(Exercise(binding.nameEditText.text.toString(), binding.descriptionEditText.text.toString()))
         }
     }
 

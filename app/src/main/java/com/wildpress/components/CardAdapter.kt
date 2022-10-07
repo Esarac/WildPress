@@ -1,35 +1,19 @@
 package com.wildpress.components
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.wildpress.R
-import com.wildpress.model.Exercise
-import com.wildpress.model.Resumeable
+import com.wildpress.model.Cardable
 
-class CardAdapter<T: Resumeable>(list: ArrayList<T>) : RecyclerView.Adapter<CardAdapter<T>.ViewHolder<T>>() {
+class CardAdapter<T: Cardable>(list: ArrayList<T>) : RecyclerView.Adapter<ViewHolder<T>>() {
 
     private val list: ArrayList<T> = list
 
-    inner class ViewHolder<T: Resumeable>(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var item: T? = null
-
-        var cardImage: ImageView
-        var cardTitle: TextView
-
-        init {
-            cardImage = itemView.findViewById(R.id.card_image)
-            cardTitle = itemView.findViewById(R.id.card_title)
-        }
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder<T> {
         val inflater = LayoutInflater.from(viewGroup.context)
-        val row = inflater.inflate(R.layout.view_holder_exercises, viewGroup, false)
-        return ViewHolder(row)
+        val item = inflater.inflate(R.layout.card_view, viewGroup, false)
+        return ViewHolder<T>(item)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder<T>, i: Int) {

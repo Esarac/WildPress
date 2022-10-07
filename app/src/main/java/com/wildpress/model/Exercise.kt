@@ -1,3 +1,13 @@
 package com.wildpress.model
 
-class Exercise(val name: String = "", val description: String = "")
+import com.wildpress.R
+
+class Exercise(val name: String = "", val description: String = ""): Cardable{
+    override fun getImage(): Int {
+        return R.drawable.ic_google
+    }
+
+    override fun getTitle(): String {
+        return name
+    }
+}

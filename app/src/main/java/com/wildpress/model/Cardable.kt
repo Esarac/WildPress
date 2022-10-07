@@ -1,7 +1,6 @@
 package com.wildpress.model
 
-interface Resumeable {
+interface Cardable {
     public fun getImage(): Int;
     public fun getTitle(): String;
-    public fun getData(): String;
 }
