@@ -7,14 +7,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.wildpress.R
 import com.wildpress.model.Cardable
 
-class ViewHolder<T: Cardable>(itemView: View) : RecyclerView.ViewHolder(itemView){
-    var item: T? = null
+class ViewHolder<T: Cardable>(itemView: View) : IViewHolder<T>(itemView){
+    object Constants {
+        const val RESOURCE_ID: Int = R.layout.card_view
+    }
 
-    var cardImage: ImageView
-    var cardTitle: TextView
+    private var cardImage: ImageView
+    private var cardTitle: TextView
 
     init {
         cardImage = itemView.findViewById(R.id.card_image)
         cardTitle = itemView.findViewById(R.id.card_title)
+    }
+
+    override fun setItem(item: T) {
+        super.setItem(item)
+        this.cardImage.setImageResource(item.getImage())
+        this.cardTitle.text = item.getTitle()
     }
 }

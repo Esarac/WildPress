@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.wildpress.R
 import com.wildpress.activities.ExerciseAdapter
 import com.wildpress.components.CardAdapter
+import com.wildpress.components.ViewHolder
 import com.wildpress.databinding.FragmentWorkoutBinding
 import com.wildpress.model.Exercise
 
@@ -43,7 +45,7 @@ class Workout : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.layoutManager = LinearLayoutManager(context)
-        this.adapter = CardAdapter(this.exercises)
+        this.adapter = CardAdapter(this.exercises, ViewHolder.Constants.RESOURCE_ID)
         binding.exerciseRecyclerView.layoutManager = this.layoutManager
         binding.exerciseRecyclerView.adapter = this.adapter
 
