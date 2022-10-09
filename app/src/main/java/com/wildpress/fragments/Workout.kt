@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wildpress.components.RecyclerViewAdapter
-import com.wildpress.components.CardViewHolder
+import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentWorkoutBinding
-import com.wildpress.model.Exercise
+import com.wildpress.model.Workout
 
 class Workout : Fragment() {
 
@@ -20,15 +19,15 @@ class Workout : Fragment() {
 
     //Properties
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private lateinit var adapter: RecyclerViewAdapter<Exercise>
-    private var exercises = ArrayList<Exercise>()
+    private lateinit var adapter: CardRecyclerView<Workout>
+    private var workouts = ArrayList<Workout>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this.exercises.add(Exercise("Push up", "Exercise n1"))
-        this.exercises.add(Exercise("Incline up", "Exercise n2"))
-        this.exercises.add(Exercise("Decline up", "Exercise n3"))
+        this.workouts.add(Workout("Push up", "Exercise n1"))
+        this.workouts.add(Workout("Incline up", "Exercise n2"))
+        this.workouts.add(Workout("Decline up", "Exercise n3"))
     }
 
     override fun onCreateView(
@@ -43,13 +42,13 @@ class Workout : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.layoutManager = LinearLayoutManager(context)
-        this.adapter = RecyclerViewAdapter(this.exercises, CardViewHolder.Constants.RESOURCE_ID)
+        this.adapter = CardRecyclerView(this.workouts)
         binding.exerciseRecyclerView.layoutManager = this.layoutManager
         binding.exerciseRecyclerView.adapter = this.adapter
 
         //Listeners
         binding.createButton.setOnClickListener {
-            adapter.addItem(Exercise(binding.nameEditText.text.toString(), binding.descriptionEditText.text.toString()))
+            adapter.addItem(Workout(binding.nameEditText.text.toString(), binding.descriptionEditText.text.toString()))
         }
     }
 

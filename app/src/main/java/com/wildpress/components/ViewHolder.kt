@@ -10,13 +10,4 @@ abstract class ViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView)
     open fun setItem(item: T) {
         this.item = item;
     }
-
-    object Factory{
-        fun <T: Cardable>FactoryViewHolder(itemView: View, resource: Int): ViewHolder<T>{
-            return when(resource){
-                CardViewHolder.Constants.RESOURCE_ID -> CardViewHolder(itemView)
-                else -> CardViewHolder(itemView)
-            }
-        }
-    }
 }
