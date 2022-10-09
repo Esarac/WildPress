@@ -1,5 +1,6 @@
 package com.wildpress.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.wildpress.R
+import com.wildpress.activities.CreateExerciseActivity
 import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentWorkoutBinding
 import com.wildpress.model.Workout
 
-class Workout : Fragment() {
+class Workout : Fragment(R.layout.fragment_workout) {
 
     //Binding
     private var _binding : FragmentWorkoutBinding? = null
@@ -49,6 +52,9 @@ class Workout : Fragment() {
         //Listeners
         binding.createButton.setOnClickListener {
             adapter.addItem(Workout(binding.nameEditText.text.toString(), binding.descriptionEditText.text.toString()))
+        }
+        binding.workoutCreateBtn.setOnClickListener {//Change
+            startActivity(Intent(activity, CreateExerciseActivity::class.java))
         }
     }
 

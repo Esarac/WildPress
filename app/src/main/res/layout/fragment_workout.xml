@@ -11,7 +11,7 @@
         android:layout_width="391dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintBottom_toTopOf="@+id/workoutTableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionEditText" />
@@ -57,7 +57,7 @@
 
 
     <TableLayout
-        android:id="@+id/tableLayout"
+        android:id="@+id/workoutTableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/primary"
@@ -75,7 +75,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/dietCreSubmitBtn"
+                android:id="@+id/workoutCreateBtn"
                 android:layout_width="0dip"
                 android:layout_height="48dp"
                 android:layout_marginStart="20dp"
@@ -87,7 +87,7 @@
                 app:layout_gravity="fill_horizontal" />
 
             <Button
-                android:id="@+id/dietCreCancelBtn"
+                android:id="@+id/workoutExercisesBtn"
                 android:layout_width="0dip"
                 android:layout_height="48dp"
                 android:layout_marginStart="12dp"

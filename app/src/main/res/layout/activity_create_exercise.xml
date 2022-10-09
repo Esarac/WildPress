@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CreateDietActivity">
+    tools:context=".activities.CreateExerciseActivity">
 
     <include
-        android:id="@+id/dietCreToolbar"
+        android:id="@+id/exerciseCreToolbar"
         layout='@layout/toolbar' />
 
+    <!-- Image -->
     <ImageView
-        android:id="@+id/dietCreImage"
+        android:id="@+id/exerciseCreImage"
+        android:contentDescription="Exercise Image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -25,92 +27,91 @@
         android:padding="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dietCreToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreToolbar"
         app:srcCompat="@android:drawable/ic_menu_camera"
         tools:srcCompat="@android:drawable/ic_menu_camera" />
 
+    <!-- Name -->
     <TextView
-        android:id="@+id/dietCreNameText"
+        android:id="@+id/exerciseCreNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginTop="20dp"
-        android:text="@string/dietCreDietName"
+        android:text="@string/exerciseCreName"
         android:theme="@style/BlackTitleText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dietCreImage" />
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreImage" />
 
     <EditText
-        android:id="@+id/dietCreNameEditText"
+        android:id="@+id/exerciseCreNameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
         android:layout_marginEnd="42dp"
         android:ems="10"
-        android:hint="@string/dietCreDietNameHint"
+        android:hint="@string/exerciseCreNameHint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:background="@drawable/text_input_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dietCreNameText" />
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreNameText" />
 
+    <!-- Muscle -->
     <TextView
-        android:id="@+id/dietCreDescriptionText"
+        android:id="@+id/exerciseCreMuscleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginTop="20dp"
-        android:text="@string/dietCreDescription"
+        android:text="@string/exerciseCreMuscle"
         android:theme="@style/BlackTitleText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dietCreNameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreNameEditText" />
+
+    <Spinner
+        android:id="@+id/exerciseCreMuscleSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:minHeight="48dp"
+        android:background="@drawable/text_input_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreMuscleText"/>
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/exerciseCreDescriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/exerciseCreDescription"
+        android:theme="@style/BlackTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreMuscleSpinner" />
 
     <EditText
-        android:id="@+id/dietCreDescriptionEditTex"
+        android:id="@+id/exerciseCreDescriptionEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
         android:layout_marginEnd="42dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="@string/dietCreDietDescriptionHint"
+        android:hint="@string/exerciseCreDescriptionHint"
         android:inputType="textMultiLine"
         android:minHeight="100dp"
         android:maxHeight="100dp"
         android:background="@drawable/text_input_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dietCreDescriptionText" />
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreDescriptionText" />
 
-    <TextView
-        android:id="@+id/dietCreIngredientsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/dietCreIngredients"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dietCreDescriptionEditTex" />
-
-    <EditText
-        android:id="@+id/dietCreIngredientsEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/dietCreDietIngredientsHint"
-        android:inputType="textMultiLine"
-        android:minHeight="100dp"
-        android:maxHeight="100dp"
-        android:background="@drawable/text_input_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dietCreIngredientsText" />
-
+    <!-- Buttons -->
     <TableLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -120,7 +121,7 @@
         android:stretchColumns="*"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dietCreIngredientsEditText">
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreDescriptionEditText">
 
         <TableRow
             android:layout_width="0dp"
@@ -130,22 +131,22 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/dietCreSubmitBtn"
+                android:id="@+id/exerciseCreSubmitBtn"
                 android:layout_width="0dip"
                 android:layout_height="48dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
-                android:text="@string/dietCreSubmitBtn"
+                android:text="@string/exerciseCreSubmitBtn"
                 android:theme="@style/ButtonTheme"
                 app:layout_gravity="fill_horizontal" />
 
             <Button
-                android:id="@+id/dietCreCancelBtn"
+                android:id="@+id/exerciseCreCancelBtn"
                 android:layout_width="0dip"
                 android:layout_height="48dp"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:text="@string/dietCreCancelBtn"
+                android:text="@string/exerciseCreCancelBtn"
                 android:theme="@style/ButtonTheme"
                 app:layout_gravity="fill_horizontal" />
 
