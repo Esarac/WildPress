@@ -4,21 +4,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
-import com.wildpress.R
 import com.wildpress.model.Cardable
 
-class CardAdapter<T: Cardable>(list: ArrayList<T>, @LayoutRes resource: Int) : RecyclerView.Adapter<IViewHolder<T>>() {
+class RecyclerViewAdapter<T: Cardable>(list: ArrayList<T>, @LayoutRes resource: Int) : RecyclerView.Adapter<ViewHolder<T>>() {
 
     private val list: ArrayList<T> = list
     private val resource: Int = resource
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): IViewHolder<T> {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder<T> {
         val inflater = LayoutInflater.from(viewGroup.context)
         val view = inflater.inflate(resource, viewGroup, false)
-        return ViewHolder(view)
+        return ViewHolder.Factory.FactoryViewHolder(view, resource)
     }
 
-    override fun onBindViewHolder(viewHolder: IViewHolder<T>, i: Int) {
+    override fun onBindViewHolder(viewHolder: ViewHolder<T>, i: Int) {
         viewHolder.setItem(list[i])
     }
 
