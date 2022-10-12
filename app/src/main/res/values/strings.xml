@@ -49,6 +49,10 @@
     <string name="WorkoutNavBar">Workout</string>
     <string name="workoutCreateWorkoutBtn">Create workout</string>
     <string name="workoutExerciseBtn">Exercise</string>
+    <!-- Exercise -->
+    <string name="exerciseSearch">Search</string>
+    <string name="exerciseCreateExercise">Create exercise</string>
+    <string name="exerciseSelectedExerciseBtn">Ready</string>
     <!-- Create Exercise -->
     <string name="exerciseCreName">Exercise Name</string>
     <string name="exerciseCreNameHint">Enter the name of the exercise</string>
