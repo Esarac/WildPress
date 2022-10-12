@@ -32,6 +32,8 @@
     <string name="FeedNavBar">Feed</string>
     <string name="FriendsActivity">Friends Activity</string>
     <string name="NewPostBtn">New Post</string>
+    <!-- New Post-->
+    <string name="SubmitPostBtn">Post</string>
     <!-- Diet -->
     <string name="DietNavBar">Diet</string>
     <string name="createDietBtn">Create a new diet</string>
