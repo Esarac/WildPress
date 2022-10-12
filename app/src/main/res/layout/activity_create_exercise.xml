@@ -74,6 +74,7 @@
         android:id="@+id/exerciseCreMuscleSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:contentDescription="Muscles"
         android:layout_marginStart="42dp"
         android:layout_marginEnd="42dp"
         android:minHeight="48dp"
