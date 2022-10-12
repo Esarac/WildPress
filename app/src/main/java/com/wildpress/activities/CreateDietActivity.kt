@@ -10,8 +10,9 @@ class CreateDietActivity : AppCompatActivity() {
     //Binding
     private lateinit var binding : ActivityCreateDietBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceStat: Bundle?) {
+        super.onCreate(savedInstanceStat)
+
         binding = ActivityCreateDietBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
