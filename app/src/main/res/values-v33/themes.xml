@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SpinnerTheme">
+        <item name="android:colorAccent">@color/white</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/hind_bold</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerItemTheme</item>
+        <item name="android:backdropColor">@color/secondary</item>
+    </style>
+</resources>

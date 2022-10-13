@@ -103,11 +103,18 @@
 
     <style name="SpinnerTheme">
         <item name="android:colorAccent">@color/white</item>
-        <item name="android:textColor">@color/accent</item>
+        <item name="android:textColor">@color/secondary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/hind_bold</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerItemTheme</item>
+    </style>
+
+    <style name="SpinnerItemTheme" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@color/secondary</item>
+<!--        <item name="android:colorBackground">@color/primary</item>-->
+<!--        <item name="android:panelColorBackground">@color/primary</item>-->
     </style>
 
 </resources>
