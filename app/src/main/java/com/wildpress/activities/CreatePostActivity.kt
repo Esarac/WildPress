@@ -20,12 +20,15 @@ class CreatePostActivity : AppCompatActivity() {
 
         //Listeners
         //Submit button
-        binding.postCancelBtn.setOnClickListener {
+        binding.postSubmitBtn.setOnClickListener {
             onSupportNavigateUp()
+            if(binding.postMainTextArea.text.toString() == ""){
+                //Post action
+            }
         }
 
-        //Cancel button
-        binding.postSubmitBtn.setOnClickListener {
+        //Image button
+        binding.addImageBtn.setOnClickListener {
             onSupportNavigateUp()
         }
     }

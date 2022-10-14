@@ -12,23 +12,14 @@
     <Button
         android:id="@+id/postSubmitBtn"
         style="@style/ButtonTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="198dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="109dp"
         android:text="@string/SubmitPostBtn"
-        app:layout_constraintStart_toStartOf="@+id/postMainTextArea"
-        app:layout_constraintTop_toBottomOf="@+id/postMainTextArea" />
-
-    <Button
-        android:id="@+id/postCancelBtn"
-        style="@style/ButtonTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/dietCreCancelBtn"
         app:layout_constraintEnd_toEndOf="@+id/postMainTextArea"
+        app:layout_constraintStart_toStartOf="@+id/postMainTextArea"
         app:layout_constraintTop_toBottomOf="@+id/postMainTextArea" />
 
     <EditText
@@ -36,12 +27,28 @@
         android:layout_width="306dp"
         android:layout_height="137dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/text_input_border"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:background="@drawable/text_input_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dietCreToolbar" />
+
+    <ImageButton
+        android:id="@+id/addImageBtn"
+        style="@style/ButtonTheme"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/postSubmitBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postMainTextArea"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

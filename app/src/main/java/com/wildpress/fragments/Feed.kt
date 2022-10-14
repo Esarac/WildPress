@@ -30,7 +30,6 @@ class Feed : Fragment(R.layout.fragment_feed) {
 
         binding.newPostBtn.setOnClickListener {
             startActivity(Intent(activity, CreatePostActivity::class.java))
-            println("Funciona")
         }
     }
 
