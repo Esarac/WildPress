@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wildpress.R
@@ -25,8 +26,13 @@ class Feed : Fragment(R.layout.fragment_feed) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         this.posts.add(Post("Shared new routine","Esarac"))
         this.posts.add(Post("Check out my profile ;)","Expertogamer", "Voodlyc"))
+        this.posts.add(Post("Shared new routine","Golder32"))
+        this.posts.add(Post("Shared new routine","Samsattas"))
+        this.posts.add(Post("Shared new routine","espaciotiago"))
+        this.posts.add(Post("Shared new routine","kashjfdkjasb"))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
