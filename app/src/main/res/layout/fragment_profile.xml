@@ -26,6 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Yojam Satizabal"
+        android:drawablePadding="5dp"
+        android:drawableEnd="@drawable/ic_outline_verified_24"
         android:theme="@style/ProfileTextTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +36,11 @@
     <TableLayout
         android:id="@+id/signInTableLayoutFields"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
         android:layout_marginStart="42dp"
+        android:layout_marginTop="50dp"
         android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profNameTextView">
@@ -53,19 +56,20 @@
                 android:id="@+id/profFollowersNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2234"
                 android:layout_weight=".5"
+                android:text="2234"
                 android:theme="@style/ProfileTextTitle" />
 
             <TextView
                 android:id="@+id/profRoutinesNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="99+"
                 android:layout_weight=".5"
+                android:text="99+"
                 android:theme="@style/ProfileTextTitle" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -89,6 +93,7 @@
                 android:text="@string/profRoutines"
                 android:theme="@style/ProfileText" />
         </TableRow>
+
         <TableRow
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -100,8 +105,9 @@
                 android:id="@+id/proFollowingNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15"
                 android:layout_weight=".5"
+                android:layout_marginTop="20dp"
+                android:text="15"
                 android:theme="@style/ProfileTextTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profFollowersText" />
@@ -110,12 +116,14 @@
                 android:id="@+id/profileLeagueText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diamond"
                 android:layout_weight=".5"
+                android:layout_marginTop="20dp"
+                android:text="Diamond"
                 android:theme="@style/ProfileTextTitle2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profRoutines" />
         </TableRow>
+
         <TableRow
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -127,8 +135,8 @@
                 android:id="@+id/profFollowingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Following"
                 android:layout_weight=".5"
+                android:text="Following"
                 android:theme="@style/ProfileText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/proFollowingNumber" />
@@ -137,12 +145,13 @@
                 android:id="@+id/profLeague"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight=".5"
                 android:text="@string/profLeague"
                 android:theme="@style/ProfileText"
-                android:layout_weight=".5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileLeagueText" />
         </TableRow>
+
         <TableRow
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -154,12 +163,14 @@
                 android:id="@+id/profFavoriteExercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Push up"
+                android:layout_marginTop="20dp"
                 android:theme="@style/ProfileTextTitle"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_weight="1"
                 app:layout_constraintTop_toBottomOf="@+id/profFollowingText" />
         </TableRow>
+
         <TableRow
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -171,9 +182,9 @@
                 android:id="@+id/favoriteExcerciseLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/profFavoriteExercise"
                 android:theme="@style/ProfileText"
-                android:layout_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profFavoriteExercise" />
         </TableRow>
