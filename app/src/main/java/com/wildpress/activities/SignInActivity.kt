@@ -22,9 +22,6 @@ class SignInActivity : AppCompatActivity() {
         binding.sigInSignInBtn.setOnClickListener {
             onSupportNavigateUp()
         }
-        binding.sigInCancelBtn.setOnClickListener {
-            onSupportNavigateUp()
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

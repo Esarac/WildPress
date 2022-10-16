@@ -62,117 +62,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sigInUsernameTextView" />
 
-    <TableLayout
-        android:id="@+id/signInTableLayoutFields"
+    <TextView
+        android:id="@+id/signInFirstNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:text="@string/signInFirstName"
+        android:theme="@style/BlackTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sigInUsernameTextEdit" />
+
+    <EditText
+        android:id="@+id/signInFirstNameTextEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="42dp"
-        android:stretchColumns="*"
+        android:layout_weight="1"
+        android:background="@drawable/text_input_border"
+        android:ems="10"
+        android:hint="@string/signInFirstNameHint"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sigInUsernameTextEdit">
+        app:layout_constraintTop_toBottomOf="@+id/signInFirstNameTextView" />
 
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+    <TextView
+        android:id="@+id/signInLastNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:text="@string/signInLastName"
+        android:theme="@style/BlackTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInFirstNameTextEdit" />
 
-            <TextView
-                android:id="@+id/signInFirstNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/signInFirstName"
-                android:theme="@style/BlackTitleText" />
-
-            <TextView
-                android:id="@+id/signInLastNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:text="@string/signInLastName"
-                android:theme="@style/BlackTitleText" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <EditText
-                android:id="@+id/signInFirstNameTextEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:layout_marginEnd="5dp"
-                android:inputType="textPersonName"
-                android:hint="@string/signInFirstNameHint"
-                android:background="@drawable/text_input_border" />
-
-            <EditText
-                android:id="@+id/signInLastNameTextEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:layout_marginStart="5dp"
-                android:inputType="textPersonName"
-                android:hint="@string/signInLastNameHint"
-                android:background="@drawable/text_input_border"/>
-
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:id="@+id/sigInTableLayoutButtons"
+    <EditText
+        android:id="@+id/signInLastNameTextEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="42dp"
-        android:stretchColumns="*"
+        android:layout_weight="1"
+        android:background="@drawable/text_input_border"
+        android:ems="10"
+        android:hint="@string/signInLastNameHint"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInAboutMeTextEdit">
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <Button
-                android:id="@+id/sigInSignInBtn"
-                android:layout_width="0dip"
-                android:layout_height="48dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:text="@string/signInSignInBtn"
-                android:theme="@style/ButtonTheme"
-                app:layout_gravity="fill_horizontal" />
-
-            <Button
-                android:id="@+id/sigInCancelBtn"
-                android:layout_width="0dip"
-                android:layout_height="48dp"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:text="@string/signInCancelBtn"
-                android:theme="@style/ButtonTheme"
-                app:layout_gravity="fill_horizontal" />
-
-        </TableRow>
-    </TableLayout>
+        app:layout_constraintTop_toBottomOf="@+id/signInLastNameTextView" />
 
     <TextView
         android:id="@+id/signInPasswordTextView"
@@ -183,7 +125,7 @@
         android:text="@string/signInPassword"
         android:theme="@style/BlackTitleText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInTableLayoutFields" />
+        app:layout_constraintTop_toBottomOf="@+id/signInLastNameTextEdit" />
 
     <EditText
         android:id="@+id/signInPasswordTextEdit"
@@ -253,6 +195,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signInAboutMeTextView" />
+
+    <Button
+        android:id="@+id/sigInSignInBtn"
+        android:layout_width="0dip"
+        android:layout_height="48dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="42dp"
+        android:layout_weight="1"
+        android:text="@string/signInSignInBtn"
+        android:theme="@style/ButtonTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInAboutMeTextEdit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
