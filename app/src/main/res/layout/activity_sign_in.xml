@@ -10,205 +10,221 @@
         android:id="@+id/toolbarSignIn"
         layout='@layout/toolbar' />
 
-    <TextView
-        android:id="@+id/sigInEmailTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/signInEmailAddress"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarSignIn" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarSignIn">
 
-    <EditText
-        android:id="@+id/sigInEmailTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:background="@drawable/text_input_border"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:hint="@string/signInEmailAddressHint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sigInEmailTextView" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarSignIn">
 
-    <TextView
-        android:id="@+id/sigInUsernameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/signInUsername"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sigInEmailTextEdit" />
+            <TextView
+                android:id="@+id/signInEmailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/signInEmailAddress"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/sigInUsernameTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:background="@drawable/text_input_border"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:hint="@string/signInUsernameHint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sigInUsernameTextView" />
+            <EditText
+                android:id="@+id/signInEmailTextEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:hint="@string/signInEmailAddressHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInEmailTextView" />
 
-    <TextView
-        android:id="@+id/signInFirstNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:text="@string/signInFirstName"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sigInUsernameTextEdit" />
+            <TextView
+                android:id="@+id/signInUsernameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/signInUsername"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInEmailTextEdit" />
 
-    <EditText
-        android:id="@+id/signInFirstNameTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:layout_weight="1"
-        android:background="@drawable/text_input_border"
-        android:ems="10"
-        android:hint="@string/signInFirstNameHint"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInFirstNameTextView" />
+            <EditText
+                android:id="@+id/signInUsernameTextEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:hint="@string/signInUsernameHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInUsernameTextView" />
 
-    <TextView
-        android:id="@+id/signInLastNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:text="@string/signInLastName"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInFirstNameTextEdit" />
+            <TextView
+                android:id="@+id/signInFirstNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:text="@string/signInFirstName"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInUsernameTextEdit" />
 
-    <EditText
-        android:id="@+id/signInLastNameTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:layout_weight="1"
-        android:background="@drawable/text_input_border"
-        android:ems="10"
-        android:hint="@string/signInLastNameHint"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInLastNameTextView" />
+            <EditText
+                android:id="@+id/signInFirstNameTextEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:layout_weight="1"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:hint="@string/signInFirstNameHint"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInFirstNameTextView" />
 
-    <TextView
-        android:id="@+id/signInPasswordTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/signInPassword"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInLastNameTextEdit" />
+            <TextView
+                android:id="@+id/signInLastNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:text="@string/signInLastName"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInFirstNameTextEdit" />
 
-    <EditText
-        android:id="@+id/signInPasswordTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:background="@drawable/text_input_border"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/signInPasswordHint"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInPasswordTextView" />
+            <EditText
+                android:id="@+id/signInLastNameTextEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:layout_weight="1"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:hint="@string/signInLastNameHint"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInLastNameTextView" />
 
-    <TextView
-        android:id="@+id/signInConfirmPasswordTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/signInConfirmPassword"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInPasswordTextEdit" />
+            <TextView
+                android:id="@+id/signInPasswordTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/signInPassword"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInLastNameTextEdit" />
 
-    <EditText
-        android:id="@+id/signInConfirmPasswordTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:background="@drawable/text_input_border"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/signInConfirmPasswordHint"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInConfirmPasswordTextView" />
+            <EditText
+                android:id="@+id/signInPasswordTextEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/signInPasswordHint"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInPasswordTextView" />
 
-    <TextView
-        android:id="@+id/signInAboutMeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/signInAboutMe"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInConfirmPasswordTextEdit" />
+            <TextView
+                android:id="@+id/signInConfirmPasswordTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/signInConfirmPassword"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInPasswordTextEdit" />
 
-    <EditText
-        android:id="@+id/signInAboutMeTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:background="@drawable/text_input_border"
-        android:ems="10"
-        android:hint="@string/signInAboutMeHint"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:minHeight="70dp"
-        android:maxHeight="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInAboutMeTextView" />
+            <EditText
+                android:id="@+id/signInConfirmPasswordTextEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/signInConfirmPasswordHint"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInConfirmPasswordTextView" />
 
-    <Button
-        android:id="@+id/sigInSignInBtn"
-        android:layout_width="0dip"
-        android:layout_height="48dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="42dp"
-        android:layout_weight="1"
-        android:text="@string/signInSignInBtn"
-        android:theme="@style/ButtonTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInAboutMeTextEdit" />
+            <TextView
+                android:id="@+id/signInAboutMeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/signInAboutMe"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInConfirmPasswordTextEdit" />
 
+            <EditText
+                android:id="@+id/signInAboutMeTextEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:hint="@string/signInAboutMeHint"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:minHeight="100dp"
+                android:maxHeight="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInAboutMeTextView" />
+
+            <Button
+                android:id="@+id/sigInSignInBtn"
+                android:layout_width="0dip"
+                android:layout_height="48dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="42dp"
+                android:layout_weight="1"
+                android:text="@string/signInSignInBtn"
+                android:theme="@style/ButtonTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signInAboutMeTextEdit" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

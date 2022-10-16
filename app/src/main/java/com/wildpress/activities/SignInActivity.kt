@@ -16,7 +16,7 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Initialize toolbar
-        Toolbar().showToolbar(this, "Sig In", true)
+        Toolbar().showToolbar(this, "Sign In", true)
 
         //Listeners
         binding.sigInSignInBtn.setOnClickListener {
