@@ -29,7 +29,7 @@ class Feed : Fragment(R.layout.fragment_feed) {
         this.posts.add(Post("Check out my profile ;)","Expertogamer", "Voodlyc"))
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFeedBinding.inflate(inflater, container, false)
         return binding.root
     }

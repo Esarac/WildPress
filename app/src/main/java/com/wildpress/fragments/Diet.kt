@@ -13,7 +13,6 @@ import com.wildpress.activities.CreateDietActivity
 import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentDietBinding
 import com.wildpress.model.Diet
-import com.wildpress.model.Workout
 
 class Diet : Fragment(R.layout.fragment_diet) {
 
@@ -35,7 +34,7 @@ class Diet : Fragment(R.layout.fragment_diet) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDietBinding.inflate(inflater, container, false)
         return binding.root
     }

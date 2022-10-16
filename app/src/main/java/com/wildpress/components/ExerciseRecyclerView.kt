@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import com.wildpress.R
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import com.wildpress.model.Exercise
 
 class ExerciseRecyclerView(exercises: ArrayList<Exercise>) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
-    private val exercises: ArrayList<Exercise> = exercises;
+    private val exercises: ArrayList<Exercise> = exercises
 
     open inner class ExerciseViewHolder(view: View) : ViewHolder<Exercise>(view){
         var exerciseName : TextView

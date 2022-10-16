@@ -20,17 +20,13 @@ class CreateDietActivity : AppCompatActivity() {
         Toolbar().showToolbar(this, "New Diet", true)
 
         //Listeners
-        binding.dietCreCancelBtn.setOnClickListener {
-            onSupportNavigateUp()
-        }
-
         binding.dietCreSubmitBtn.setOnClickListener {
             onSupportNavigateUp()
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        onBackPressedDispatcher.onBackPressed()
         return true
     }
 }

@@ -37,7 +37,7 @@ class Workout : Fragment(R.layout.fragment_workout) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentWorkoutBinding.inflate(inflater, container, false)
         return binding.root
     }
