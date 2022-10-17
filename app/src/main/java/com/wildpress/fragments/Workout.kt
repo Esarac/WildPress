@@ -51,8 +51,14 @@ class Workout : Fragment(R.layout.fragment_workout) {
         this.adapter = CardRecyclerView(this.workouts)
         this.adapter.setOnItemClickListener(object : CardRecyclerView.onItemClickListener{
             override fun <T> onItemClick(item: T) {
-                Toast.makeText(activity, "The item is: ${item.toString()}", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(activity, WorkoutActivity::class.java))
+                //Cast item to Workout
+                val workout = item as Workout
+                Toast.makeText(activity, "The item is: ${workout.name}", Toast.LENGTH_SHORT).show()
+
+                //Pass the Workout to the next Activity using the context
+                val intent = Intent(activity, WorkoutActivity::class.java)
+                intent.putExtra("workout", workout)
+                startActivity(intent)
             }
         })
         binding.exerciseRecyclerView.layoutManager = this.layoutManager
