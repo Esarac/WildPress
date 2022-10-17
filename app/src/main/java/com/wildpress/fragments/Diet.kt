@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wildpress.R
 import com.wildpress.activities.CreateDietActivity
+import com.wildpress.activities.WorkoutActivity
 import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentDietBinding
 import com.wildpress.model.Diet
@@ -44,6 +46,11 @@ class Diet : Fragment(R.layout.fragment_diet) {
 
         this.layoutManager = LinearLayoutManager(context)
         this.adapter = CardRecyclerView(this.diets)
+        this.adapter.setOnItemClickListener(object : CardRecyclerView.onItemClickListener{
+            override fun <T> onItemClick(item: T) {
+                Toast.makeText(activity, "The item is: ${item.toString()}", Toast.LENGTH_SHORT).show()
+            }
+        })
         binding.dietRecyclerView.layoutManager = this.layoutManager
         binding.dietRecyclerView.adapter = this.adapter
 

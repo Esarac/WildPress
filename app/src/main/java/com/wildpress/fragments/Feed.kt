@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wildpress.R
 import com.wildpress.activities.CreatePostActivity
+import com.wildpress.activities.WorkoutActivity
 import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentFeedBinding
 import com.wildpress.model.Post
@@ -45,6 +47,11 @@ class Feed : Fragment(R.layout.fragment_feed) {
 
         this.layoutManager = LinearLayoutManager(context)
         this.adapter = CardRecyclerView(this.posts)
+        this.adapter.setOnItemClickListener(object : CardRecyclerView.onItemClickListener{
+            override fun <T> onItemClick(item: T) {
+                Toast.makeText(activity, "The item is: ${item.toString()}", Toast.LENGTH_SHORT).show()
+            }
+        })
         binding.postRecyclerView.layoutManager = this.layoutManager
         binding.postRecyclerView.adapter = this.adapter
 
