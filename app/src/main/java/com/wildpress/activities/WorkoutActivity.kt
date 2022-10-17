@@ -17,7 +17,7 @@ class WorkoutActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Initialize toolbar
-        Toolbar().showToolbar(this, "Texas", true)
+        Toolbar().showToolbar(this, "Push up", true)
 
         //Listeners
     }
