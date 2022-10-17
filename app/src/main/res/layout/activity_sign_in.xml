@@ -46,7 +46,8 @@
                 android:hint="@string/signInEmailAddressHint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/signInEmailTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/signInEmailTextView"
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/signInUsernameTextView"
@@ -97,6 +98,7 @@
                 android:ems="10"
                 android:hint="@string/signInFirstNameHint"
                 android:inputType="textPersonName"
+                android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signInFirstNameTextView" />
@@ -124,6 +126,7 @@
                 android:ems="10"
                 android:hint="@string/signInLastNameHint"
                 android:inputType="textPersonName"
+                android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signInLastNameTextView" />

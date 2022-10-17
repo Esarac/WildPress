@@ -109,8 +109,7 @@
                 android:layout_marginTop="25dp"
                 android:text="15"
                 android:theme="@style/ProfileTextTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profFollowersText" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/profileLeagueText"
@@ -120,8 +119,7 @@
                 android:layout_marginTop="25dp"
                 android:text="Diamond"
                 android:theme="@style/ProfileTextTitle2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profRoutines" />
+                app:layout_constraintEnd_toEndOf="parent" />
         </TableRow>
 
         <TableRow
@@ -136,10 +134,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
-                android:text="Following"
+                android:text="@string/profFollowing"
                 android:theme="@style/ProfileText"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/proFollowingNumber" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/profLeague"
@@ -148,8 +145,7 @@
                 android:layout_weight=".5"
                 android:text="@string/profLeague"
                 android:theme="@style/ProfileText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profileLeagueText" />
+                app:layout_constraintEnd_toEndOf="parent" />
         </TableRow>
 
         <TableRow
@@ -167,8 +163,7 @@
                 android:text="Push up"
                 android:layout_marginTop="25dp"
                 android:theme="@style/ProfileTextTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profFollowingText" />
+                app:layout_constraintStart_toStartOf="parent" />
         </TableRow>
 
         <TableRow
@@ -185,8 +180,7 @@
                 android:layout_weight="1"
                 android:text="@string/profFavoriteExercise"
                 android:theme="@style/ProfileText"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profFavoriteExercise" />
+                app:layout_constraintStart_toStartOf="parent" />
         </TableRow>
     </TableLayout>
 

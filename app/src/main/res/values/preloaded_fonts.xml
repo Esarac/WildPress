@@ -4,5 +4,6 @@
         <item>@font/hind_bold</item>
         <item>@font/hind_guntur_bold</item>
         <item>@font/montserrat_alternates</item>
+        <item>@font/roboto_mono</item>
     </array>
 </resources>
