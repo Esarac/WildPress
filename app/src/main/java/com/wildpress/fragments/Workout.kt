@@ -15,6 +15,7 @@ import com.wildpress.activities.ExerciseActivity
 import com.wildpress.activities.WorkoutActivity
 import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentWorkoutBinding
+import com.wildpress.model.Exercise
 import com.wildpress.model.Workout
 
 class Workout : Fragment(R.layout.fragment_workout) {
@@ -31,7 +32,14 @@ class Workout : Fragment(R.layout.fragment_workout) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this.workouts.add(Workout("Push up", "Exercise n1"))
+        val workout1 = Workout("Push up", "Exercise n1")
+        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
+        this.workouts.add(workout1)
+
         this.workouts.add(Workout("Incline up", "Exercise n2"))
         this.workouts.add(Workout("Decline up", "Exercise n3"))
     }
@@ -61,15 +69,15 @@ class Workout : Fragment(R.layout.fragment_workout) {
                 startActivity(intent)
             }
         })
-        binding.exerciseRecyclerView.layoutManager = this.layoutManager
-        binding.exerciseRecyclerView.adapter = this.adapter
+        binding.workoutRecyclerView.layoutManager = this.layoutManager
+        binding.workoutRecyclerView.adapter = this.adapter
 
         //Listeners
         binding.createButton.setOnClickListener {
             adapter.addItem(Workout(binding.nameEditText.text.toString(), binding.descriptionEditText.text.toString()))
         }
         binding.workoutCreateBtn.setOnClickListener {//Change
-            startActivity(Intent(activity, CreateExerciseActivity::class.java))
+            startActivity(Intent(activity, ExerciseActivity::class.java))
         }
         binding.workoutExercisesBtn.setOnClickListener {
             startActivity(Intent(activity, ExerciseActivity::class.java))

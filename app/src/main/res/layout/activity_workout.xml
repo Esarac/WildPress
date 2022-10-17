@@ -26,8 +26,8 @@
         android:id="@+id/workoutStatsTableLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:stretchColumns="*"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,8 +45,8 @@
                 android:id="@+id/workoutTimeValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
                 android:layout_marginStart="50dp"
+                android:layout_weight=".5"
                 android:text="0:41h"
                 android:theme="@style/ProfileTextTitle2" />
 
@@ -54,8 +54,8 @@
                 android:id="@+id/workoutCaloriesValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
                 android:layout_marginStart="5dp"
+                android:layout_weight=".5"
                 android:text="392"
                 android:theme="@style/ProfileTextTitle2" />
 
@@ -72,8 +72,8 @@
                 android:id="@+id/workoutTimeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
                 android:layout_marginStart="63dp"
+                android:layout_weight=".5"
                 android:text="@string/workoutTime"
                 android:theme="@style/WorkoutText" />
 
@@ -132,15 +132,16 @@
             <TableRow
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/workoutRoundRestValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:text="1:00m"
                     android:layout_marginStart="2dp"
-                    android:theme="@style/WorkoutBoxedText"
+                    android:layout_marginTop="25dp"
                     android:background="@drawable/boxed_text"
+                    android:text="1:00m"
+                    android:theme="@style/WorkoutBoxedText"
                     app:layout_constraintEnd_toEndOf="parent" />
 
             </TableRow>
@@ -157,8 +158,8 @@
                 android:id="@+id/workoutExerciseRestText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
                 android:layout_marginStart="15dp"
+                android:layout_weight=".5"
                 android:text="@string/workoutRest"
                 android:theme="@style/WorkoutText"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -176,26 +177,39 @@
                 android:id="@+id/workoutRoundRestText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
                 android:layout_marginStart="7dp"
+                android:layout_weight=".5"
                 android:text="@string/workoutRoundRest"
                 android:theme="@style/WorkoutText"
                 app:layout_constraintEnd_toEndOf="parent" />
         </TableRow>
     </TableLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/workoutExercisesRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/workoutStartBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workoutStatsTableLayout"
+        app:layout_constraintVertical_bias="0.468" />
+
     <Button
-        android:id="@+id/dietCreSubmitBtn"
+        android:id="@+id/workoutStartBtn"
         android:layout_width="0dip"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="42dp"
+        android:layout_marginBottom="16dp"
         android:layout_weight="1"
         android:text="@string/workoutStartBtn"
         android:theme="@style/ButtonTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workoutStatsTableLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,7 +59,7 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/exerciseCreateExercise"
+        android:id="@+id/exerciseCreateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -68,6 +68,16 @@
         android:theme="@style/ButtonTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exerciseTableLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/exerciseRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/workoutTableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreateBtn" />
 
     <TableLayout
         android:id="@+id/workoutTableLayout"

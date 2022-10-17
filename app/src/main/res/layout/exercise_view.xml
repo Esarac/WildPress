@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/exerciseItemView"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_margin="16dp"
+    android:background="@drawable/exercise_background"
+    >
+
+
+    <ImageView
+        android:id="@+id/exercise_item_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:contentDescription="exercise_image"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        android:background="@color/primary"
+        />
+
+    <TextView
+        android:id="@+id/exercise_item_title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="left|center_vertical"
+        android:paddingStart="8dp"
+        android:textColor="@color/secondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toEndOf="@+id/exercise_item_image"
+        card_view:layout_constraintTop_toTopOf="parent"
+        tools:text="Exercise">
+
+    </TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

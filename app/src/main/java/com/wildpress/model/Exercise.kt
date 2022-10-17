@@ -1,5 +1,7 @@
 package com.wildpress.model
 
-import com.wildpress.R
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-class Exercise(val name: String = "", val description: String = ""){}
+@Parcelize
+class Exercise(val name: String = "", val description: String = ""): Parcelable {}

@@ -5,31 +5,32 @@ import android.view.LayoutInflater
 import com.wildpress.R
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.wildpress.model.Exercise
 
 class ExerciseRecyclerView(exercises: ArrayList<Exercise>) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
     private val exercises: ArrayList<Exercise> = exercises
 
-    open inner class ExerciseViewHolder(view: View) : ViewHolder<Exercise>(view){
-        var exerciseName : TextView
-        var exerciseDescription : TextView
+    open inner class ExerciseViewHolder(itemView: View) : ViewHolder<Exercise>(itemView){
+        private var exerciseImage: ImageView
+        private var exerciseName : TextView
 
         init{
-            exerciseName = view.findViewById(R.id.exerciseName)
-            exerciseDescription = view.findViewById(R.id.exerciseDescription)
+            exerciseImage = itemView.findViewById(R.id.exercise_item_image)
+            exerciseName = itemView.findViewById(R.id.exercise_item_title)
         }
 
-        override fun setItem(exercise: Exercise) {
-            super.setItem(exercise)
-            this.exerciseName.text = exercise.name
-            this.exerciseDescription.text = exercise.description
+        override fun setItem(item: Exercise) {
+            super.setItem(item)
+            this.exerciseImage.setImageResource(R.drawable.ic_google)
+            this.exerciseName.text = item.name
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ExerciseViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.view_holder_exercises, parent, false)
+        val view = inflater.inflate(R.layout.exercise_view, parent, false)
         return ExerciseViewHolder(view)
     }
 
