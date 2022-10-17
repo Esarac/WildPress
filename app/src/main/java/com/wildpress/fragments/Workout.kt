@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wildpress.R
 import com.wildpress.activities.CreateExerciseActivity
 import com.wildpress.activities.ExerciseActivity
+import com.wildpress.activities.WorkoutActivity
 import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentWorkoutBinding
 import com.wildpress.model.Workout
@@ -47,6 +49,12 @@ class Workout : Fragment(R.layout.fragment_workout) {
 
         this.layoutManager = LinearLayoutManager(context)
         this.adapter = CardRecyclerView(this.workouts)
+        this.adapter.setOnItemClickListener(object : CardRecyclerView.onItemClickListener{
+            override fun <T> onItemClick(item: T) {
+                Toast.makeText(activity, "The item is: ${item.toString()}", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(activity, WorkoutActivity::class.java))
+            }
+        })
         binding.exerciseRecyclerView.layoutManager = this.layoutManager
         binding.exerciseRecyclerView.adapter = this.adapter
 
