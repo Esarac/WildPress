@@ -26,7 +26,7 @@ class Feed : Fragment(R.layout.fragment_feed) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        //Better interface for feed coming soon!
         this.posts.add(Post("Shared new routine","Esarac"))
         this.posts.add(Post("Check out my profile ;)","Expertogamer", "Voodlyc"))
         this.posts.add(Post("Shared new routine","Golder32"))
