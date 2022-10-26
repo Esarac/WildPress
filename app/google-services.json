@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "699998975665",
+    "project_id": "wildpress-d0dce",
+    "storage_bucket": "wildpress-d0dce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699998975665:android:49c2700d12f1e42d901490",
+        "android_client_info": {
+          "package_name": "com.wildpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699998975665-sk872v6qkns5llgl0ihjqb94srdp3ij0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1L_Bmh-IDvUEY5AyqrrCCg1cLxFJROXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699998975665-sk872v6qkns5llgl0ihjqb94srdp3ij0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
