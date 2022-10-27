@@ -1,13 +1,17 @@
 package com.wildpress.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivitySignInBinding
+import com.wildpress.model.User
 
 class SignInActivity : AppCompatActivity() {
 
@@ -26,17 +30,41 @@ class SignInActivity : AppCompatActivity() {
         binding.sigInSignInBtn.setOnClickListener(::register)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressedDispatcher.onBackPressed()
-        return true
-    }
     private fun register(view: View){
-        Log.e("prueba", binding.signInEmailTextEdit.text.toString())
         Firebase.auth.createUserWithEmailAndPassword(
             binding.signInEmailTextEdit.text.toString(),
             binding.signInPasswordTextEdit.text.toString()
         ).addOnSuccessListener {
-            finish();
+            val id = Firebase.auth.currentUser?.uid
+            val userName = binding.signInUsernameTextEdit.text.toString()
+            val firstName = binding.signInFirstNameTextEdit.text.toString()
+            val lastName = binding.signInLastNameTextEdit.text.toString()
+            val aboutMe = binding.signInAboutMeTextEdit.text.toString()
+            val user = User(id!!,userName,firstName, lastName,aboutMe);
+            Firebase.firestore.collection("users").document(id).set(user).addOnSuccessListener{
+                //sendVerificationEmail()
+                finish()
+
+            }
+
+        }.addOnFailureListener{
+            Toast.makeText(this, it.message,Toast.LENGTH_LONG).show()
         }
     }
+
+    private fun sendVerificationEmail() {
+        Firebase.auth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
+            Toast.makeText(this, "Verfique su email", Toast.LENGTH_LONG).show()
+        }?.addOnFailureListener {
+            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+        }
+    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
+    }
+
+
 }

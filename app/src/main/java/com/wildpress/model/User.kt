@@ -1,3 +1,6 @@
 package com.wildpress.model
+import java.io.Serializable
 
-class User (val username: String, val link: String)
+data class User (val id: String="", val username: String="", val firstName: String="", val lastName: String="", val aboutMe: String=""){
+
+}

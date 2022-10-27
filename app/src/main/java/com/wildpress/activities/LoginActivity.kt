@@ -3,7 +3,13 @@ package com.wildpress.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import com.wildpress.databinding.ActivityLoginBinding
+import com.wildpress.model.User
 
 class LoginActivity : AppCompatActivity() {
 
@@ -17,7 +23,21 @@ class LoginActivity : AppCompatActivity() {
 
         //Listeners
         binding.logBtn.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            val userEmail = binding.logUsernameText.text.toString()
+            val password = binding.PasswordText.text.toString()
+
+            //startActivity(Intent(this, MainActivity::class.java))
+            Firebase.auth.signInWithEmailAndPassword(userEmail, password).addOnSuccessListener {
+                val loggedUser = Firebase.auth.currentUser
+                Firebase.firestore.collection("users").document(loggedUser!!.uid).get().addOnSuccessListener {
+                    val userOnDataBase = it.toObject(User::class.java)
+                    //saveUserLocal(userOnDataBase!!)
+                    startActivity(Intent(this,MainActivity::class.java))
+                    finish()
+                }
+            }.addOnFailureListener{
+                Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+            }
         }
         binding.logGoogleBtn.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -28,6 +48,12 @@ class LoginActivity : AppCompatActivity() {
         binding.logForgotBtn.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+    private fun saveUserLocal(user: User){
+        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
+        val json = Gson().toJson(user)
+        sp.edit().putString("user", json).apply()
+
     }
 
 }
