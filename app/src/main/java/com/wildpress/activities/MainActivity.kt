@@ -1,16 +1,24 @@
 package com.wildpress.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.wildpress.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import com.wildpress.components.Toolbar
 import com.wildpress.fragments.*
+import com.wildpress.model.User
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomBar: BottomNavigationView
+
+    private lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +59,18 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        val user = loadUser()
+        if (user==null || Firebase.auth.currentUser == null){
+            //val intent = Intent(this, M)
+            finish()
+            return
+        } else{
+            this.user = user
+            Toast.makeText(this, "Hola ${user.username}", Toast.LENGTH_LONG).show()
+        }
+
+
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -60,5 +80,15 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    
+    private fun loadUser():User?{
+        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
+        val json = sp.getString("user", "NO_USER")
+        if(json == "NO_USER"){
+            return null
+        }else{
+            return Gson().fromJson(json, User::class.java)
+        }
+    }
+
+
 }
