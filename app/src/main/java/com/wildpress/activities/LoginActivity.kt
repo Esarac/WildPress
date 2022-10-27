@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
                 val loggedUser = Firebase.auth.currentUser
                 Firebase.firestore.collection("users").document(loggedUser!!.uid).get().addOnSuccessListener {
                     val userOnDataBase = it.toObject(User::class.java)
-                    //saveUserLocal(userOnDataBase!!)
+                    saveUserLocal(userOnDataBase!!)
                     startActivity(Intent(this,MainActivity::class.java))
                     finish()
                 }
@@ -53,7 +53,6 @@ class LoginActivity : AppCompatActivity() {
         val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
         val json = Gson().toJson(user)
         sp.edit().putString("user", json).apply()
-
     }
 
 }
