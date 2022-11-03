@@ -1,11 +1,18 @@
 package com.wildpress.activities
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityCreatePostBinding
 
 class CreatePostActivity : AppCompatActivity() {
+
+    private var imageUri: Uri? = null
 
     //Binding
     private lateinit var binding : ActivityCreatePostBinding
@@ -29,12 +36,24 @@ class CreatePostActivity : AppCompatActivity() {
 
         //Image button
         binding.addImageBtn.setOnClickListener {
-            onSupportNavigateUp()
+            openGallery()
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
         return true
+    }
+
+    private val startGalleryForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            imageUri = it.data?.data
+            binding.addImageBtn.setImageURI(imageUri)
+        }
+    }
+
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startGalleryForResult.launch(intent)
     }
 }
