@@ -58,6 +58,11 @@
     <string name="workoutRounds">Rounds</string>
     <string name="workoutRoundRest">Round rest</string>
     <string name="workoutStartBtn">Start</string>
+    <!-- WorkoutStartActivity-->
+    <string name="workoutStartExerciseNameDefault">Rest</string>
+    <string name="workoutStartTimerDefault">00:00m</string>
+    <string name="workoutStartPrevBtn">Prev</string>
+    <string name="workoutStartNextBtn">Next</string>
     <!-- Exercise -->
     <string name="exerciseSearch">Search</string>
     <string name="exerciseCreateExercise">Create exercise</string>

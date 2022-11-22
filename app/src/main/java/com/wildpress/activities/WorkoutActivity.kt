@@ -1,5 +1,6 @@
 package com.wildpress.activities
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wildpress.components.ExerciseRecyclerView
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityWorkoutBinding
-import com.wildpress.model.Exercise
 import com.wildpress.model.Workout
 
 class WorkoutActivity : AppCompatActivity() {
@@ -42,6 +42,12 @@ class WorkoutActivity : AppCompatActivity() {
         }
 
         //Listeners
+        binding.workoutStartBtn.setOnClickListener {
+            val intent = Intent(this, WorkoutStartActivity::class.java)
+            intent.putExtra("workout", workout)
+
+            startActivity(intent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
