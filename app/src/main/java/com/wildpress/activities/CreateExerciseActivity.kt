@@ -3,7 +3,6 @@ package com.wildpress.activities
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import android.content.Intent
@@ -17,17 +16,8 @@ import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityCreateExerciseBinding
 import com.wildpress.model.Muscle
 import com.wildpress.model.User
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
 import com.google.gson.Gson
-import com.wildpress.databinding.ActivityLoginBinding
 import com.wildpress.model.Exercise
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-
-
-
-
 
 class CreateExerciseActivity : AppCompatActivity() {
     private var imageUri: Uri? = null
@@ -93,7 +83,6 @@ class CreateExerciseActivity : AppCompatActivity() {
             return
         } else{
             this.user = user
-            //val arrayExcercise = Firebase.firestore.collection("users").document(userId).get(exercises)
             Firebase.firestore.collection("users").document(userId).update("listOfExercise",exercises).addOnSuccessListener {
                 Toast.makeText(this, "Hola ${user.username}", Toast.LENGTH_LONG).show()
             }

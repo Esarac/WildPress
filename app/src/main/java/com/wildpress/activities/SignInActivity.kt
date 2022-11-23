@@ -43,6 +43,7 @@ class SignInActivity : AppCompatActivity() {
 
         if(binding.signInPasswordTextEdit.text.toString().trim() != binding.signInConfirmPasswordTextEdit.text.toString().trim()) {
             message = "Password does not match"
+            Toast.makeText(this, "password: " + binding.signInPasswordTextEdit.text.toString().trim() + " - confirm: " + binding.signInConfirmPasswordTextEdit.text.toString(), Toast.LENGTH_LONG).show()
         }
 
         return message
