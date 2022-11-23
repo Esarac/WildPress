@@ -1,6 +1,7 @@
 package com.wildpress.fragments
 
 import android.app.Activity
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,8 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.wildpress.activities.LoginActivity
 import com.wildpress.databinding.FragmentProfileBinding
+import android.content.SharedPreferences
 
 class Profile : Fragment() {
 
@@ -32,6 +35,11 @@ class Profile : Fragment() {
 
         binding.profileLogoutBtn.setOnClickListener {
             startActivity(Intent(activity, LoginActivity::class.java))
+            if(activity != null){
+                var sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences("WildPress", MODE_PRIVATE)
+                sharedPreferences.edit().remove("user").apply()
+            }
+
         }
 
         binding.editProfilePictureBtn.setOnClickListener {

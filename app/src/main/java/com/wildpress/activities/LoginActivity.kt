@@ -1,6 +1,7 @@
 package com.wildpress.activities
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -16,26 +17,38 @@ class LoginActivity : AppCompatActivity() {
     //Binding
     private  lateinit var binding: ActivityLoginBinding
 
+    //Shared Preferences
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedPreferences = getSharedPreferences("WildPress", MODE_PRIVATE)
+
+        //Remember Me
+        val loggedUserAsString = sharedPreferences.getString("user",null)
+        if(loggedUserAsString != null){
+            var loggedUser = Gson().fromJson(loggedUserAsString, User::class.java)
+            goMainPage(loggedUser)
+        }
+
         //Listeners
         binding.logBtn.setOnClickListener {
             val userEmail = binding.logUsernameText.text.toString()
             val password = binding.PasswordText.text.toString()
-
-            //startActivity(Intent(this, MainActivity::class.java))
+            
             val message = checkRequiredFields()
             if(message.isEmpty()) {
                 Firebase.auth.signInWithEmailAndPassword(userEmail, password).addOnSuccessListener {
                     val loggedUser = Firebase.auth.currentUser
                     Firebase.firestore.collection("users").document(loggedUser!!.uid).get().addOnSuccessListener {
                         val userOnDataBase = it.toObject(User::class.java)
-                        saveUserLocal(userOnDataBase!!)
-                        startActivity(Intent(this,MainActivity::class.java))
-                        finish()
+                        if(binding.logRememberCheckBox.isChecked){
+                            saveUserLocal(userOnDataBase!!)
+                        }
+                        goMainPage(userOnDataBase!!)
                     }
                 }.addOnFailureListener{
                     Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
@@ -45,9 +58,11 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show()
             }
         }
-        binding.logGoogleBtn.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
+
+//        binding.logGoogleBtn.setOnClickListener {
+//            startActivity(Intent(this, MainActivity::class.java))
+//        }
+
         binding.logSignBtn.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
         }
@@ -70,9 +85,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun saveUserLocal(user: User){
-        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
-        val json = Gson().toJson(user)
-        sp.edit().putString("user", json).apply()
+        val userJson = Gson().toJson(user)
+        sharedPreferences.edit().putString("user", userJson).apply()
+    }
+
+    private fun goMainPage(user: User){
+        val intent = Intent(this, MainActivity::class.java)
+        System.out.println(user)
+        intent.putExtra("user", user)
+        startActivity(intent)
+        finish()
     }
 
 }

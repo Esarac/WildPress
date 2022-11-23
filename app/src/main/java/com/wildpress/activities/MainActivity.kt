@@ -1,9 +1,11 @@
 package com.wildpress.activities
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.wildpress.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        val user = loadUser()
+        val user = getUser()
         if (user==null || Firebase.auth.currentUser == null){
             //val intent = Intent(this, M)
             finish()
@@ -80,15 +82,15 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    private fun loadUser():User?{
-        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
-        val json = sp.getString("user", "NO_USER")
-        if(json == "NO_USER"){
-            return null
-        }else{
-            return Gson().fromJson(json, User::class.java)
+    private fun getUser():User?{
+        val user = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+             intent.getParcelableExtra("user", User::class.java)
         }
-    }
+        else {
+            @Suppress("DEPRECATION") intent.getParcelableExtra<User>("user")
+        }
 
+        return user
+    }
 
 }
