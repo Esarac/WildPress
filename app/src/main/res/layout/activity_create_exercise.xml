@@ -10,123 +10,143 @@
         android:id="@+id/exerciseCreToolbar"
         layout='@layout/toolbar' />
 
-    <!-- Image -->
-    <ImageView
-        android:id="@+id/exerciseCreImage"
-        android:contentDescription="Exercise Image"
+
+        <!-- Image -->
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="42dp"
-        android:background="@drawable/image_border"
-        android:maxWidth="120dp"
-        android:maxHeight="150dp"
-        android:minWidth="120dp"
-        android:minHeight="150dp"
-        android:padding="1dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseCreToolbar"
-        app:srcCompat="@android:drawable/ic_menu_camera"
-        tools:srcCompat="@android:drawable/ic_menu_camera" />
+        app:layout_constraintTop_toBottomOf="@+id/exerciseCreToolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/exerciseCreToolbar">
+
+            <ImageView
+                android:id="@+id/exerciseCreImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/image_border"
+                android:contentDescription="Exercise Image"
+                android:maxWidth="120dp"
+                android:maxHeight="150dp"
+                android:minWidth="120dp"
+                android:minHeight="150dp"
+                android:padding="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                tools:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <TextView
+                android:id="@+id/exerciseCreMuscleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/exerciseCreMuscle"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseCreNameEditText" />
+
+            <TextView
+                android:id="@+id/exerciseCreNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/exerciseCreName"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseCreImage" />
+
+            <Spinner
+                android:id="@+id/exerciseCreMuscleSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/radio_button_background_drawable"
+                android:contentDescription="Muscles"
+                android:minHeight="48dp"
+                android:spinnerMode="dialog"
+                android:theme="@style/SpinnerTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseCreMuscleText" />
+
+            <Button
+                android:id="@+id/exerciseCreSubmitBtn"
+                android:layout_width="0dip"
+                android:layout_height="48dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="42dp"
+                android:layout_weight="1"
+                android:text="@string/dietCreSubmitBtn"
+                android:theme="@style/ButtonTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseCreDescriptionEditText" />
+
+            <EditText
+                android:id="@+id/exerciseCreNameEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:hint="@string/exerciseCreNameHint"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseCreNameText" />
+
+            <EditText
+                android:id="@+id/exerciseCreDescriptionEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/exerciseCreDescriptionHint"
+                android:inputType="textMultiLine"
+                android:maxHeight="100dp"
+                android:minHeight="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseCreDescriptionText" />
+
+            <TextView
+                android:id="@+id/exerciseCreDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/exerciseCreDescription"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseCreMuscleSpinner" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <!-- Name -->
-    <TextView
-        android:id="@+id/exerciseCreNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/exerciseCreName"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseCreImage" />
-
-    <EditText
-        android:id="@+id/exerciseCreNameEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:ems="10"
-        android:hint="@string/exerciseCreNameHint"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:background="@drawable/text_input_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseCreNameText" />
 
     <!-- Muscle -->
-    <TextView
-        android:id="@+id/exerciseCreMuscleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/exerciseCreMuscle"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseCreNameEditText" />
-
-    <Spinner
-        android:id="@+id/exerciseCreMuscleSpinner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:background="@drawable/radio_button_background_drawable"
-        android:contentDescription="Muscles"
-        android:minHeight="48dp"
-        android:spinnerMode="dialog"
-        android:theme="@style/SpinnerTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseCreMuscleText" />
 
     <!-- Description -->
-    <TextView
-        android:id="@+id/exerciseCreDescriptionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/exerciseCreDescription"
-        android:theme="@style/BlackTitleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseCreMuscleSpinner" />
-
-    <EditText
-        android:id="@+id/exerciseCreDescriptionEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/exerciseCreDescriptionHint"
-        android:inputType="textMultiLine"
-        android:minHeight="100dp"
-        android:maxHeight="100dp"
-        android:background="@drawable/text_input_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseCreDescriptionText" />
 
     <!-- Buttons -->
-    <Button
-        android:id="@+id/exerciseCreSubmitBtn"
-        android:layout_width="0dip"
-        android:layout_height="48dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="42dp"
-        android:layout_weight="1"
-        android:text="@string/dietCreSubmitBtn"
-        android:theme="@style/ButtonTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseCreDescriptionEditText"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

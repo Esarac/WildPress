@@ -49,8 +49,7 @@ class CreatePostActivity : AppCompatActivity() {
     private val startGalleryForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             imageUri = it.data?.data
-
-            binding.textViewImage.setText(imageUri?.path ?: "File")
+            binding.textViewImage.setText("Image loaded")
         }
     }
 
