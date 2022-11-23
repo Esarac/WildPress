@@ -11,6 +11,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivitySignInBinding
+import com.wildpress.model.Exercise
 import com.wildpress.model.User
 
 class SignInActivity : AppCompatActivity() {
@@ -40,7 +41,8 @@ class SignInActivity : AppCompatActivity() {
             val firstName = binding.signInFirstNameTextEdit.text.toString()
             val lastName = binding.signInLastNameTextEdit.text.toString()
             val aboutMe = binding.signInAboutMeTextEdit.text.toString()
-            val user = User(id!!,userName,firstName, lastName,aboutMe);
+            val exercises = arrayListOf<Exercise>()
+            val user = User(id!!,userName,firstName, lastName,aboutMe,exercises);
             Firebase.firestore.collection("users").document(id).set(user).addOnSuccessListener{
                 //sendVerificationEmail()
                 finish()
