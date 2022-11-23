@@ -22,6 +22,11 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.gson.Gson
 import com.wildpress.databinding.ActivityLoginBinding
 import com.wildpress.model.Exercise
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+
+
+
 
 
 class CreateExerciseActivity : AppCompatActivity() {
@@ -71,16 +76,16 @@ class CreateExerciseActivity : AppCompatActivity() {
         return true
     }
     private fun uploadExercise(){
+        val user = loadUser()
         val image = binding.exerciseCreImage.toString()
         val exerciseName = binding.exerciseCreNameEditText.text.toString()
         var muscleToTrain = binding.exerciseCreMuscleSpinner.toString()
         var exerciseDescription = binding.exerciseCreDescriptionEditText.text.toString()
         val exercise = Exercise(image,exerciseName,muscleToTrain, exerciseDescription);
-        val exercises = arrayListOf<Exercise>()
+        val exercises = user!!.listOfExercise
         exercises.add(exercise)
         val loggedUser = Firebase.auth.currentUser
         val userId = loggedUser!!.uid
-        val user = loadUser()
 
         if (user==null || loggedUser == null){
             //val intent = Intent(this, M)
@@ -88,9 +93,15 @@ class CreateExerciseActivity : AppCompatActivity() {
             return
         } else{
             this.user = user
-            //user.list.add()
-            Firebase.firestore.collection("users").document(userId).update("exercises",exercises)
-            Toast.makeText(this, "Hola ${user.username}", Toast.LENGTH_LONG).show()
+            //val arrayExcercise = Firebase.firestore.collection("users").document(userId).get(exercises)
+            Firebase.firestore.collection("users").document(userId).update("listOfExercise",exercises).addOnSuccessListener {
+                Toast.makeText(this, "Hola ${user.username}", Toast.LENGTH_LONG).show()
+            }
+            Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
+                val userOnDataBase = it.toObject(User::class.java)
+                saveUserLocal(userOnDataBase!!)
+                finish()
+            }
         }
     }
     private fun loadUser():User?{
@@ -101,5 +112,10 @@ class CreateExerciseActivity : AppCompatActivity() {
         }else{
             return Gson().fromJson(json, User::class.java)
         }
+    }
+    private fun saveUserLocal(user: User){
+        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
+        val json = Gson().toJson(user)
+        sp.edit().putString("user", json).apply()
     }
 }
