@@ -1,9 +1,7 @@
 package com.wildpress.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
@@ -31,26 +29,51 @@ class SignInActivity : AppCompatActivity() {
         binding.sigInSignInBtn.setOnClickListener(::register)
     }
 
-    private fun register(view: View){
-        Firebase.auth.createUserWithEmailAndPassword(
-            binding.signInEmailTextEdit.text.toString(),
-            binding.signInPasswordTextEdit.text.toString()
-        ).addOnSuccessListener {
-            val id = Firebase.auth.currentUser?.uid
-            val userName = binding.signInUsernameTextEdit.text.toString()
-            val firstName = binding.signInFirstNameTextEdit.text.toString()
-            val lastName = binding.signInLastNameTextEdit.text.toString()
-            val aboutMe = binding.signInAboutMeTextEdit.text.toString()
-            val listOfExercise = arrayListOf<Exercise>()
-            val user = User(id!!,userName,firstName, lastName,aboutMe,listOfExercise);
-            Firebase.firestore.collection("users").document(id).set(user).addOnSuccessListener{
-                //sendVerificationEmail()
-                finish()
+    private fun checkRequiredFields(): String {
+        var message = ""
+        val values = arrayOf(Pair("email", binding.signInEmailTextEdit.text.toString().trim()), Pair("username", binding.signInUsernameTextEdit.text.toString().trim()),
+            Pair("password", binding.signInPasswordTextEdit.text.toString().trim()), Pair("confirm password",  binding.signInConfirmPasswordTextEdit.text.toString().trim()))
 
+        for (i in values.indices) {
+            if( values[i].second.isEmpty()) {
+                message = "Please fill the " + values[i].first + " field"
+                break
             }
+        }
 
-        }.addOnFailureListener{
-            Toast.makeText(this, it.message,Toast.LENGTH_LONG).show()
+        if(binding.signInPasswordTextEdit.text.toString().trim() != binding.signInConfirmPasswordTextEdit.text.toString().trim()) {
+            message = "Password does not match"
+        }
+
+        return message
+    }
+
+    private fun register(view: View){
+        val message = checkRequiredFields()
+        if(message.isEmpty()) {
+            Firebase.auth.createUserWithEmailAndPassword(
+                binding.signInEmailTextEdit.text.toString(),
+                binding.signInPasswordTextEdit.text.toString()
+            ).addOnSuccessListener {
+                val id = Firebase.auth.currentUser?.uid
+                val userName = binding.signInUsernameTextEdit.text.toString()
+                val firstName = binding.signInFirstNameTextEdit.text.toString()
+                val lastName = binding.signInLastNameTextEdit.text.toString()
+                val aboutMe = binding.signInAboutMeTextEdit.text.toString()
+                val listOfExercise = arrayListOf<Exercise>()
+                val user = User(id!!,userName,firstName, lastName,aboutMe,listOfExercise);
+                Firebase.firestore.collection("users").document(id).set(user).addOnSuccessListener{
+                    //sendVerificationEmail()
+                    finish()
+
+                }
+
+            }.addOnFailureListener{
+                Toast.makeText(this, it.message,Toast.LENGTH_LONG).show()
+            }
+        }
+        else {
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         }
     }
 
