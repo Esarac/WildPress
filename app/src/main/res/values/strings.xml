@@ -60,7 +60,7 @@
     <string name="workoutStartBtn">Start</string>
     <!-- WorkoutStartActivity-->
     <string name="workoutStartExerciseNameDefault">Rest</string>
-    <string name="workoutStartTimerDefault">00:00m</string>
+    <string name="workoutStartTimerDefault">00:00:00</string>
     <string name="workoutStartPrevBtn">Prev</string>
     <string name="workoutStartNextBtn">Next</string>
     <!-- Exercise -->

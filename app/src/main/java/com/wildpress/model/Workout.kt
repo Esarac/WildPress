@@ -17,4 +17,8 @@ class Workout(val name: String = "", val description: String = "", val rounds: I
     fun addExercise(exercise: Exercise){
         exercises.add(exercise)
     }
+
+    fun exercisesSize() : Int = this.exercises.size
+
+    fun totalExercisesSize(): Int = this.exercises.size * this.rounds
 }

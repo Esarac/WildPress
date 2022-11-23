@@ -32,12 +32,13 @@ class Workout : Fragment(R.layout.fragment_workout) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val workout1 = Workout("Push up", "Exercise n1")
+        val workout1 = Workout("Texas", "Calisthenic workout!", 2, 10, 20)
         workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Push up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Chin up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Diamond push up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Wide grip pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("Close grip pull up", "The best exercise ever!"))
         this.workouts.add(workout1)
 
         this.workouts.add(Workout("Incline up", "Exercise n2"))
