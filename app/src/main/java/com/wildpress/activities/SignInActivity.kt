@@ -11,6 +11,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivitySignInBinding
+import com.wildpress.model.Diet
 import com.wildpress.model.Exercise
 import com.wildpress.model.User
 
@@ -23,14 +24,11 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         //Initialize toolbar
         Toolbar().showToolbar(this, "Sign In", true)
-
         //Listeners
         binding.sigInSignInBtn.setOnClickListener(::register)
     }
-
     private fun register(view: View){
         Firebase.auth.createUserWithEmailAndPassword(
             binding.signInEmailTextEdit.text.toString(),
@@ -42,18 +40,16 @@ class SignInActivity : AppCompatActivity() {
             val lastName = binding.signInLastNameTextEdit.text.toString()
             val aboutMe = binding.signInAboutMeTextEdit.text.toString()
             val listOfExercise = arrayListOf<Exercise>()
-            val user = User(id!!,userName,firstName, lastName,aboutMe,listOfExercise);
+            val listOfDiet = arrayListOf<Diet>()
+            val user = User(id!!,userName,firstName, lastName,aboutMe,listOfExercise,listOfDiet);
             Firebase.firestore.collection("users").document(id).set(user).addOnSuccessListener{
                 //sendVerificationEmail()
                 finish()
-
             }
-
         }.addOnFailureListener{
             Toast.makeText(this, it.message,Toast.LENGTH_LONG).show()
         }
     }
-
     private fun sendVerificationEmail() {
         Firebase.auth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
             Toast.makeText(this, "Verfique su email", Toast.LENGTH_LONG).show()
@@ -61,12 +57,8 @@ class SignInActivity : AppCompatActivity() {
             Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
         }
     }
-
-
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
         return true
     }
-
-
 }
