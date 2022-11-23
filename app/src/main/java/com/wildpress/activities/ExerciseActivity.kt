@@ -3,22 +3,16 @@ package com.wildpress.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
-import com.wildpress.R
-import com.wildpress.components.CardRecyclerView
 import com.wildpress.components.ExerciseRecyclerView
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityExerciseBinding
-import com.wildpress.databinding.ActivityWorkoutBinding
 import com.wildpress.model.Exercise
 import com.wildpress.model.User
-import com.wildpress.model.Workout
 
 class ExerciseActivity : AppCompatActivity() {
 
@@ -31,14 +25,14 @@ class ExerciseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         loadExercises()
 
 
         binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.exerciseRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
-        binding.exerciseRecyclerView.adapter = ExerciseRecyclerView(this.exercises)
+        binding.exerciseRecyclerView.adapter = ExerciseRecyclerView(this.exercises, binding.exerciseSelectedExercises)
+
 
         //Initialize toolbar
         Toolbar().showToolbar(this, "Exercise", true)

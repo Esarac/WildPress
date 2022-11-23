@@ -67,6 +67,7 @@
     <string name="exerciseSearch">Search</string>
     <string name="exerciseCreateExercise">Create exercise</string>
     <string name="exerciseSelectedExerciseBtn">Ready</string>
+    <string name="exerciseSelectedExercises">Select exercises</string>
     <!-- Create Exercise -->
     <string name="exerciseCreName">Exercise Name</string>
     <string name="exerciseCreNameHint">Enter the name of the exercise</string>
