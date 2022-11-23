@@ -77,9 +77,9 @@ class CreateExerciseActivity : AppCompatActivity() {
     }
     private fun uploadExercise(){
         val user = loadUser()
-        val image = binding.exerciseCreImage.toString()
+        val image = imageUri.toString()
         val exerciseName = binding.exerciseCreNameEditText.text.toString()
-        var muscleToTrain = binding.exerciseCreMuscleSpinner.toString()
+        var muscleToTrain = binding.exerciseCreMuscleSpinner.selectedItem.toString()
         var exerciseDescription = binding.exerciseCreDescriptionEditText.text.toString()
         val exercise = Exercise(image,exerciseName,muscleToTrain, exerciseDescription);
         val exercises = user!!.listOfExercise
