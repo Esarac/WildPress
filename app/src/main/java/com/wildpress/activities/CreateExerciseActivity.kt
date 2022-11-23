@@ -1,11 +1,15 @@
 package com.wildpress.activities
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import android.content.Intent
+import android.net.Uri
+import android.provider.MediaStore
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -23,6 +27,8 @@ import com.wildpress.databinding.ActivityLoginBinding
 
 
 class CreateExerciseActivity : AppCompatActivity() {
+    private var imageUri: Uri? = null
+
     //Binding
     private lateinit var binding : ActivityCreateExerciseBinding
     private lateinit var user: User
@@ -44,6 +50,22 @@ class CreateExerciseActivity : AppCompatActivity() {
             uploadExercise()
             onSupportNavigateUp()
         }
+
+        binding.exerciseCreImage.setOnClickListener{
+            openGallery()
+        }
+    }
+
+    private val startGalleryForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            imageUri = it.data?.data
+            binding.exerciseCreImage.setImageURI(imageUri)
+        }
+    }
+
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startGalleryForResult.launch(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {

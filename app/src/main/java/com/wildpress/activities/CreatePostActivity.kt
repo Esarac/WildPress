@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityCreatePostBinding
+import java.io.File
 
 class CreatePostActivity : AppCompatActivity() {
 
@@ -48,7 +49,8 @@ class CreatePostActivity : AppCompatActivity() {
     private val startGalleryForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             imageUri = it.data?.data
-            binding.addImageBtn.setImageURI(imageUri)
+
+            binding.textViewImage.setText(imageUri?.path ?: "File")
         }
     }
 
