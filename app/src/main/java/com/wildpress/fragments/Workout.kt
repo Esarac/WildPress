@@ -33,12 +33,12 @@ class Workout : Fragment(R.layout.fragment_workout) {
         super.onCreate(savedInstanceState)
 
         val workout1 = Workout("Texas", "Calisthenic workout!", 2, 10, 20)
-        workout1.addExercise(Exercise("Pull up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Push up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Chin up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Diamond push up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Wide grip pull up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("Close grip pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Push up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Chin up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Diamond push up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Wide grip pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Close grip pull up", "The best exercise ever!"))
         this.workouts.add(workout1)
 
         this.workouts.add(Workout("Incline up", "Exercise n2"))
