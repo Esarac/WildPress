@@ -7,6 +7,8 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import android.content.Intent
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.ktx.auth
@@ -18,6 +20,7 @@ import com.wildpress.model.Muscle
 import com.wildpress.model.User
 import com.google.gson.Gson
 import com.wildpress.model.Exercise
+import java.util.concurrent.TimeUnit
 
 class CreateExerciseActivity : AppCompatActivity() {
     private var imageUri: Uri? = null
@@ -41,7 +44,6 @@ class CreateExerciseActivity : AppCompatActivity() {
         //Listeners
         binding.exerciseCreSubmitBtn.setOnClickListener {
             uploadExercise()
-            onSupportNavigateUp()
         }
 
         binding.exerciseCreImage.setOnClickListener{
@@ -83,13 +85,15 @@ class CreateExerciseActivity : AppCompatActivity() {
             return
         } else{
             this.user = user
-            Firebase.firestore.collection("users").document(userId).update("listOfExercise",exercises).addOnSuccessListener {
-                Toast.makeText(this, "Hola ${user.username}", Toast.LENGTH_LONG).show()
-            }
-            Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
-                val userOnDataBase = it.toObject(User::class.java)
-                saveUserLocal(userOnDataBase!!)
-                finish()
+            Firebase.firestore.collection("users").document(userId).update("listOfExercise", exercises).addOnSuccessListener {
+                Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
+                    val userOnDataBase = it.toObject(User::class.java)
+                    saveUserLocal(userOnDataBase!!)
+                }.addOnCompleteListener{
+                    finish()
+                }
+            }.addOnFailureListener {
+//                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -49,9 +49,7 @@ class Diet : Fragment(R.layout.fragment_diet) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         loadDiets()
-
         //this.diets.add(Diet("Trucha a la plancha", "Diet n1", "Cocinarla"))
         //this.diets.add(Diet("Batido de proteina", "Diet n2", "Batirlo"))
     }
@@ -64,9 +62,10 @@ class Diet : Fragment(R.layout.fragment_diet) {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
 
+        loadDiets()
         this.layoutManager = LinearLayoutManager(context)
         this.adapter = CardRecyclerView(this.diets)
         this.adapter.setOnItemClickListener(object : CardRecyclerView.onItemClickListener{
@@ -76,6 +75,11 @@ class Diet : Fragment(R.layout.fragment_diet) {
         })
         binding.dietRecyclerView.layoutManager = this.layoutManager
         binding.dietRecyclerView.adapter = this.adapter
+        this.adapter.notifyDataSetChanged()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.createDietBtn.setOnClickListener {
             startActivity(Intent(activity, CreateDietActivity::class.java))
@@ -114,9 +118,11 @@ class Diet : Fragment(R.layout.fragment_diet) {
         }
     }
     private fun saveUserLocal(user: User){
-        val sp = this.requireActivity().getSharedPreferences("WildPress", Context.MODE_PRIVATE);
-        val json = Gson().toJson(user)
-        sp.edit().putString("user", json).apply()
+        if(activity!=null){
+            val sp = this.requireActivity().getSharedPreferences("WildPress", Context.MODE_PRIVATE);
+            val json = Gson().toJson(user)
+            sp.edit().putString("user", json).apply()
+        }
     }
 
 

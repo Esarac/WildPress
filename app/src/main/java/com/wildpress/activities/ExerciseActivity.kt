@@ -1,8 +1,10 @@
 package com.wildpress.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -25,14 +27,9 @@ class ExerciseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadExercises()
-
 
         binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.exerciseRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
-        binding.exerciseRecyclerView.adapter = ExerciseRecyclerView(this.exercises, binding.exerciseSelectedExercises)
-
 
         //Initialize toolbar
         Toolbar().showToolbar(this, "Exercise", true)
@@ -41,6 +38,18 @@ class ExerciseActivity : AppCompatActivity() {
         binding.exerciseCreateBtn.setOnClickListener {
             startActivity(Intent(this, CreateExerciseActivity::class.java))
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadExercises()
+
+        binding.exerciseRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
+
+//        Toast.makeText(this, this.exercises.toString(), Toast.LENGTH_SHORT).show()
+        val exerciseAdapter = ExerciseRecyclerView(this.exercises, binding.exerciseSelectedExercises)
+        exerciseAdapter.notifyDataSetChanged()
+        binding.exerciseRecyclerView.adapter = exerciseAdapter
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -62,7 +71,10 @@ class ExerciseActivity : AppCompatActivity() {
                 val userOnDataBase = it.toObject(User::class.java)
                 saveUserLocal(userOnDataBase!!)
             }
+            Toast.makeText(this, exercises.toString(), Toast.LENGTH_SHORT).show()
         }
+
+
 
     }
     private fun loadUser():User?{

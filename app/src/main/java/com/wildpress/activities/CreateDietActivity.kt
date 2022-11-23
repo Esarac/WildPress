@@ -37,7 +37,6 @@ class CreateDietActivity : AppCompatActivity() {
         //Listeners
         binding.dietCreSubmitBtn.setOnClickListener {
             uploadDiet()
-            onSupportNavigateUp()
         }
 
         binding.dietCreImage.setOnClickListener{
@@ -80,12 +79,11 @@ class CreateDietActivity : AppCompatActivity() {
         } else{
             this.user = user
             Firebase.firestore.collection("users").document(userId).update("listOfDiet",diets).addOnSuccessListener {
-                Toast.makeText(this, "Hola ${user.username}", Toast.LENGTH_LONG).show()
-            }
-            Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
-                val userOnDataBase = it.toObject(User::class.java)
-                saveUserLocal(userOnDataBase!!)
-                finish()
+                Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
+                    val userOnDataBase = it.toObject(User::class.java)
+                    saveUserLocal(userOnDataBase!!)
+                    finish()
+                }
             }
         }
     }

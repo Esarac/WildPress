@@ -71,8 +71,6 @@ class MainActivity : AppCompatActivity() {
             this.user = user
             Toast.makeText(this, "Hola ${user.username}", Toast.LENGTH_LONG).show()
         }
-
-
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -83,14 +81,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getUser():User?{
-        val user = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-             intent.getParcelableExtra("user", User::class.java)
+        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
+        val json = sp.getString("user", "NO_USER")
+        if(json == "NO_USER"){
+            return null
+        }else{
+            return Gson().fromJson(json, User::class.java)
         }
-        else {
-            @Suppress("DEPRECATION") intent.getParcelableExtra<User>("user")
-        }
-
-        return user
     }
 
 }

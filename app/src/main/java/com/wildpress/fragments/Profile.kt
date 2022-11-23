@@ -38,6 +38,7 @@ class Profile : Fragment() {
             if(activity != null){
                 var sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences("WildPress", MODE_PRIVATE)
                 sharedPreferences.edit().remove("user").apply()
+                sharedPreferences.edit().remove("rememberMe").apply()
             }
 
         }
