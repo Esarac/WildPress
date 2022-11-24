@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateExerciseActivity">
+
+    <include
+        android:id="@+id/workoutCreToolbar"
+        layout='@layout/toolbar' />
+
+
+    <!-- Image -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workoutCreToolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/exerciseCreToolbar">
+
+            <ImageView
+                android:id="@+id/workoutCreImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/image_border"
+                android:contentDescription="Exercise Image"
+                android:maxWidth="120dp"
+                android:maxHeight="150dp"
+                android:minWidth="120dp"
+                android:minHeight="150dp"
+                android:padding="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                tools:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <TextView
+                android:id="@+id/workoutCreNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/createWorkoutName"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreImage" />
+
+            <EditText
+                android:id="@+id/workoutCreNameEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:hint="@string/createWorkoutNameHint"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreNameText" />
+
+            <EditText
+                android:id="@+id/workoutCreDescriptionEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/text_input_border"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/createWorkoutDescriptionHint"
+                android:inputType="textMultiLine"
+                android:maxHeight="100dp"
+                android:minHeight="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreDescriptionText" />
+
+            <TextView
+                android:id="@+id/workoutCreDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/exerciseCreDescription"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreNameEditText" />
+
+            <TextView
+                android:id="@+id/workoutCreRoundsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/createWorkoutRounds"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreDescriptionEditText" />
+
+            <TableLayout
+                android:id="@+id/workoutCreTableLayoutRounds1"
+                android:layout_width="wrap_content"
+                android:layout_height="170dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/boxed_text"
+                android:minHeight="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreRoundsText">
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:stretchColumns="*"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <NumberPicker
+                        android:id="@+id/workoutCreRounds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:theme="@style/WorkoutNumberPicker"
+                        app:layout_gravity="fill_horizontal" />
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/workoutCreRoundsRestText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/createWorkoutRoundsRest"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreTableLayoutRounds1" />
+
+
+            <TableLayout
+                android:id="@+id/workoutCreTableLayoutRounds"
+                android:layout_width="wrap_content"
+                android:layout_height="170dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/boxed_text"
+                android:minHeight="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreRoundsRestText">
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <NumberPicker
+                        android:id="@+id/workoutCreRoundsRest1"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:theme="@style/WorkoutNumberPicker"
+                        app:layout_gravity="fill_horizontal" />
+
+                    <TextView
+                        android:id="@+id/workoutCreSeparator"
+                        android:layout_width="10dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="65dp"
+                        android:text="@string/createWorkoutSeparator"
+                        android:theme="@style/WhiteTitleText" />
+
+                    <NumberPicker
+                        android:id="@+id/workoutCreRoundsRest2"
+                        android:layout_width="40dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_weight="1"
+                        android:theme="@style/WorkoutNumberPicker"
+                        app:layout_gravity="fill_horizontal" />
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/workoutCreExerciseRestText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/createWorkoutExerciseRest"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreTableLayoutRounds" />
+
+            <TableLayout
+                android:id="@+id/workoutCreTableLayoutExerciseRest"
+                android:layout_width="wrap_content"
+                android:layout_height="170dp"
+
+                android:layout_marginTop="10dp"
+                android:background="@drawable/boxed_text"
+                android:minHeight="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreExerciseRestText">
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <NumberPicker
+                        android:id="@+id/workoutCreExerciseRest1"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:theme="@style/WorkoutNumberPicker"
+                        app:layout_gravity="fill_horizontal" />
+
+                    <TextView
+                        android:id="@+id/workoutCreSeparatorExerciseRest"
+                        android:layout_width="10dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="65dp"
+                        android:text="@string/createWorkoutSeparator"
+                        android:theme="@style/WhiteTitleText" />
+
+                    <NumberPicker
+                        android:id="@+id/workoutCreExerciseRest2"
+                        android:layout_width="40dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_weight="1"
+                        android:theme="@style/WorkoutNumberPicker"
+                        app:layout_gravity="fill_horizontal" />
+
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/exerciseCreSubmitBtn"
+                android:layout_width="0dip"
+                android:layout_height="48dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="42dp"
+                android:layout_weight="1"
+                android:text="@string/dietCreSubmitBtn"
+                android:theme="@style/ButtonTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreTableLayoutExerciseRest" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
