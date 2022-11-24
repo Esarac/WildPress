@@ -7,15 +7,17 @@ import android.view.LayoutInflater
 import com.wildpress.R
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.wildpress.model.Exercise
 
-class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? = null) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
+class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? = null, readyBtn: Button? = null) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
     private val exercises: ArrayList<Exercise> = exercises
     private var itemSelectedList = mutableListOf<Int>()
     private val selectedTextView: TextView? = selected
     private var selectMode: Boolean = false
+    private val readyBtn: Button? = readyBtn
 
     open inner class ExerciseViewHolder(itemView: View) : ViewHolder<Exercise>(itemView){
         private var exerciseImage: ImageView
@@ -72,8 +74,10 @@ class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? =
             if(!item.selected){
                 select(item, viewHolder, i)
 
-                if(itemSelectedList.size == 1)
+                if(itemSelectedList.size == 1) {
                     selectMode = true
+                    readyBtn?.isEnabled = true
+                }
             }
             true
         }
@@ -85,8 +89,12 @@ class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? =
             else {
                 unSelect(item, viewHolder, i)
 
-                if(itemSelectedList.size == 0)
+                if(itemSelectedList.size == 0) {
                     selectMode = false
+                    readyBtn?.isEnabled = false
+                }
+
+
             }
         }
     }
@@ -96,5 +104,9 @@ class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? =
     fun addExercise(exercise: Exercise){
         this.exercises.add(exercise)
         notifyItemInserted(exercises.size - 1)
+    }
+
+    fun getSelectedItems(): MutableList<Int> {
+        return itemSelectedList
     }
 }
