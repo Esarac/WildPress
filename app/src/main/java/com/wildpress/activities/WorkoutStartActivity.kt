@@ -4,7 +4,10 @@ import android.os.Build
 import android.os.Bundle
 import java.util.Formatter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import com.wildpress.R
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityWorkoutStartBinding
 import com.wildpress.model.Exercise
@@ -13,6 +16,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.concurrent.TimeUnit
 
 class WorkoutStartActivity: AppCompatActivity() {
     //Constant
@@ -144,6 +148,7 @@ class WorkoutStartActivity: AppCompatActivity() {
 
         binding.workoutStartExerciseNameText.text = "Rest"
         binding.workoutStartRestTimerText.text = timeFormat(this.restTimer)
+        binding.workoutStartImage.setImageResource(R.drawable.ic_baseline_alarm_24)
     }
 
     private fun nextExercise(){
@@ -181,21 +186,39 @@ class WorkoutStartActivity: AppCompatActivity() {
 
         val quoteIndexLast = (MOTIVATIONAL_QUOTES.size-1)
         binding.workoutStartRestTimerText.text = MOTIVATIONAL_QUOTES[(0..quoteIndexLast).random()]
+
+        Glide.with(this).load(actualExercise.image.toUri()).centerCrop().into(binding.workoutStartImage)
     }
 
     //Aux fun
     private fun timeFormat(durationSeconds: Int): String{
-        var hours = 0
-        var minutes = 0
-        var seconds = durationSeconds
-        if (seconds >= 3600) {
-            hours = seconds / 3600
-            seconds -= hours * 3600
+//        var hours = 0
+//        var minutes = 0
+//        var seconds = durationSeconds
+//        if (seconds >= 3600) {
+//            hours = seconds / 3600
+//            seconds -= hours * 3600
+//        }
+//        if (seconds >= 60) {
+//            minutes = seconds / 60
+//            seconds -= minutes * 60
+//        }
+//        return Formatter().format("%1\$02d:%2\$02d:%3\$02d", hours, minutes, seconds).toString()
+        val millis = (durationSeconds*1000).toLong()
+        val hours = TimeUnit.MILLISECONDS.toHours(millis) % 24
+        val minutes = TimeUnit.MILLISECONDS.toMinutes(millis) % 60
+        val seconds = TimeUnit.MILLISECONDS.toSeconds(millis) % 60
+
+        return when {
+            hours == 0L && minutes == 0L -> String.format(
+                (Formatter().format("%02d", seconds).toString()) + " s"
+            )
+
+            hours == 0L && minutes > 0L -> String.format(
+                (Formatter().format("%02d:%02d", minutes, seconds).toString()) + "m"
+            )
+
+            else -> (Formatter().format("%02d:%02d:%02d", hours, minutes, seconds).toString()) + "h"
         }
-        if (seconds >= 60) {
-            minutes = seconds / 60
-            seconds -= minutes * 60
-        }
-        return Formatter().format("%1\$02d:%2\$02d:%3\$02d", hours, minutes, seconds).toString()
     }
 }

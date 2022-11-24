@@ -1,22 +1,23 @@
 package com.wildpress.activities
 
-import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import androidx.activity.result.contract.ActivityResultContracts
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityCreatePostBinding
-import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CreatePostActivity : AppCompatActivity() {
 
-    private var imageUri: Uri? = null
-
     //Binding
     private lateinit var binding : ActivityCreatePostBinding
+    private lateinit var urimage : Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +30,16 @@ class CreatePostActivity : AppCompatActivity() {
         //Listeners
         //Submit button
         binding.postSubmitBtn.setOnClickListener {
-            onSupportNavigateUp()
-            if(binding.postMainTextArea.text.toString() == ""){
+
+            if(binding.postMainTextArea.text.toString() != ""){
                 //Post action
+                uploadImage()
             }
         }
 
         //Image button
         binding.addImageBtn.setOnClickListener {
-            openGallery()
+            selectImage()
         }
     }
 
@@ -46,15 +48,43 @@ class CreatePostActivity : AppCompatActivity() {
         return true
     }
 
-    private val startGalleryForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == Activity.RESULT_OK) {
-            imageUri = it.data?.data
+    private fun selectImage(){
+        val intent = Intent();
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+
+        startActivityForResult(intent, 100)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 100 && resultCode == RESULT_OK){
+            urimage = data?.data!!
             binding.textViewImage.setText("Image loaded")
         }
     }
 
-    private fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startGalleryForResult.launch(intent)
+    private fun uploadImage(){
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Uploading")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
+        val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
+        val now = Date()
+        val fileName = formatter.format(now)
+        val storageReference  =FirebaseStorage.getInstance().getReference("postImages/$fileName")
+
+        storageReference.putFile(urimage)
+            .addOnSuccessListener {
+                binding.textViewImage.setText("")
+                Toast.makeText(this@CreatePostActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()
+                if(progressDialog.isShowing) progressDialog.dismiss()
+                onSupportNavigateUp()
+            }.addOnFailureListener{
+                if(progressDialog.isShowing) progressDialog.dismiss()
+                Toast.makeText(this@CreatePostActivity, "Failed to upload", Toast.LENGTH_SHORT).show()
+            }
     }
 }
