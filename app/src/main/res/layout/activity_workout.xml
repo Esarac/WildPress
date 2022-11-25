@@ -27,31 +27,6 @@
             android:layout_margin="8dp">
 
             <TableLayout
-                android:id="@+id/workoutStatsTimeCol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:stretchColumns="*">
-
-                <TextView
-                    android:id="@+id/workoutTimeValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/workoutTimerDefault"
-                    android:theme="@style/ProfileTextTitle2"/>
-
-                <TextView
-                    android:id="@+id/workoutTimeLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/workoutTime"
-                    android:theme="@style/WorkoutText"/>
-
-            </TableLayout>
-
-            <TableLayout
                 android:id="@+id/workoutStatsRoundsCol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,6 +52,15 @@
 
             </TableLayout>
 
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/workoutStatsSecondRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="8dp">
+
             <TableLayout
                 android:id="@+id/workoutStatsCaloriesCol"
                 android:layout_width="wrap_content"
@@ -99,6 +83,31 @@
                     android:gravity="center"
                     android:text="@string/workoutCalories"
                     android:theme="@style/WorkoutText" />
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/workoutStatsMusclesCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:stretchColumns="*">
+
+                <TextView
+                    android:id="@+id/workoutRoundMusclesValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Triceps, Chest..."
+                    android:theme="@style/ProfileTextTitle2"/>
+
+                <TextView
+                    android:id="@+id/workoutRoundMuscleLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/workoutMuscles"
+                    android:theme="@style/WorkoutText"/>
 
             </TableLayout>
 
@@ -137,6 +146,31 @@
             </TableLayout>
 
             <TableLayout
+                android:id="@+id/workoutStatsTimeCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:stretchColumns="*">
+
+                <TextView
+                    android:id="@+id/workoutTimeValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/workoutTimerDefault"
+                    android:theme="@style/ProfileTextTitle2"/>
+
+                <TextView
+                    android:id="@+id/workoutTimeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/workoutTime"
+                    android:theme="@style/WorkoutText"/>
+
+            </TableLayout>
+
+            <TableLayout
                 android:id="@+id/workoutStatsRoundRestCol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -162,7 +196,6 @@
             </TableLayout>
 
         </TableRow>
-
     </TableLayout>
 
     <androidx.recyclerview.widget.RecyclerView

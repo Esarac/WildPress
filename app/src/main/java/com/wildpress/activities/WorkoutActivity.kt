@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wildpress.components.ExerciseRecyclerView
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityWorkoutBinding
+import com.wildpress.model.Muscle
 import com.wildpress.model.Workout
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -40,6 +41,8 @@ class WorkoutActivity : AppCompatActivity() {
             binding.workoutRoundsValue.text = workout.rounds.toString()
 
             binding.workoutCaloriesValue.text = workout.burnedCalories().toString()
+
+            binding.workoutRoundMusclesValue.text = muscleFormat(workout.trainedMuscles())
 
             binding.workoutTimeValue.text = timeFormat(workout.totalTime())
 
@@ -86,5 +89,16 @@ class WorkoutActivity : AppCompatActivity() {
 
             else -> (Formatter().format("%02d:%02d:%02d", hours, minutes, seconds).toString()) + "h"
         }
+    }
+
+    private fun muscleFormat(muscles: List<Pair<Muscle, Int>>): String{
+        if(muscles.isEmpty())
+            return ""
+        if(muscles.size == 1)
+            return muscles[0].first.toString()
+        if(muscles.size == 2)
+            return muscles[0].first.toString() +" & "+muscles[1].first.toString()
+        else
+            return muscles[0].first.toString() +", "+muscles[1].first.toString()+"..."
     }
 }

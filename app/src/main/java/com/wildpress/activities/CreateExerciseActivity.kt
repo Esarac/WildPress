@@ -67,7 +67,7 @@ class CreateExerciseActivity : AppCompatActivity() {
         val exerciseName = binding.exerciseCreNameEditText.text.toString()
         var muscleToTrain = binding.exerciseCreMuscleSpinner.selectedItem.toString()
         var exerciseDescription = binding.exerciseCreDescriptionEditText.text.toString()
-        val exercise = Exercise(image,exerciseName,muscleToTrain, exerciseDescription);
+        val exercise = Exercise(image,exerciseName,Muscle.valueOf(muscleToTrain), exerciseDescription);
         val exercises = user!!.listOfExercise
         exercises.add(exercise)
         val loggedUser = Firebase.auth.currentUser

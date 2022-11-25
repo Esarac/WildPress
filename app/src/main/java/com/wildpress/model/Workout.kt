@@ -44,6 +44,21 @@ class Workout(val name: String = "", val description: String = "", val rounds: I
         return calories
     }
 
+    fun trainedMuscles(): List<Pair<Muscle, Int>> {
+        var musclesIntensity = HashMap<Muscle, Int> ()
+
+        exercises.forEach {
+            if (musclesIntensity.containsKey(it.muscle))
+                musclesIntensity[it.muscle] = (it.repetitions + musclesIntensity[it.muscle]!!)
+            else
+                musclesIntensity[it.muscle] = it.repetitions
+        }
+
+        return musclesIntensity.toList().sortedBy {
+            it.second
+        }.asReversed()
+    }
+
     fun exercisesSize() : Int = this.exercises.size
 
     fun totalExercisesSize(): Int = this.exercises.size * this.rounds

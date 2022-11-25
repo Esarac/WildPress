@@ -17,6 +17,7 @@ import com.wildpress.activities.WorkoutActivity
 import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentWorkoutBinding
 import com.wildpress.model.Exercise
+import com.wildpress.model.Muscle
 import com.wildpress.model.Workout
 
 class Workout : Fragment(R.layout.fragment_workout) {
@@ -34,12 +35,12 @@ class Workout : Fragment(R.layout.fragment_workout) {
         super.onCreate(savedInstanceState)
 
         val workout1 = Workout("Texas", "Calisthenic workout!", 2, 10, 20)
-        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Pull up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Push up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Chin up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Diamond push up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Wide grip pull up", "The best exercise ever!"))
-        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Close grip pull up", "The best exercise ever!"))
+        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Pull up", Muscle.BACK))
+        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Push up", Muscle.CHEST))
+        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Chin up", Muscle.BACK))
+        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Diamond push up", Muscle.CHEST))
+        workout1.addExercise(Exercise("https://www.fitnesseducation.edu.au/wp-content/uploads/2020/10/Pushups.jpg","Wide grip pull up", Muscle.BACK))
+        workout1.addExercise(Exercise("https://mikereinold.com/wp-content/uploads/rookie-mistakes-the-pullup-main.jpg","Close grip pull up", Muscle.BACK))
         this.workouts.add(workout1)
 
         this.workouts.add(Workout("Incline up", "Exercise n2"))

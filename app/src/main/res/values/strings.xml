@@ -63,8 +63,9 @@
     <string name="createWorkoutExerciseRest">Exercise rest (in minutes)</string>
 
     <!-- WorkoutActivity-->
-    <string name="workoutTime">Time</string>
+    <string name="workoutTime">Total time</string>
     <string name="workoutCalories">Calories</string>
+    <string name="workoutMuscles">Muscles</string>
     <string name="workoutRest">Rest</string>
     <string name="workoutRounds">Rounds</string>
     <string name="workoutRoundRest">Round rest</string>
