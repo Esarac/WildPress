@@ -132,7 +132,7 @@ class CreateExerciseActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
         val fileName = formatter.format(now)
-        val storageReference  = FirebaseStorage.getInstance().getReference("postImages/$fileName")
+        val storageReference  = FirebaseStorage.getInstance().getReference("exerciseImages/$fileName")
 
         storageReference.putFile(urimage)
             .addOnSuccessListener {
