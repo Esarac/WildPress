@@ -61,6 +61,9 @@ class WorkoutSelectExerciseActivity : AppCompatActivity() {
             for(i in items.indices) {
                 workout?.addExercise(exercises[items[i]])
             }
+            if (workout != null) {
+                uploadWorkOut(workout)
+            }
 
             for(i in workout?.exercises?.indices!!){
                 stringExercises += workout.exercises[i].name + ", "
@@ -89,6 +92,34 @@ class WorkoutSelectExerciseActivity : AppCompatActivity() {
         onBackPressedDispatcher.onBackPressed()
         return true
     }
+    private fun uploadWorkOut(workOutToAdd: Workout){
+        val user = loadUser()
+        //val image = urimage.toString()
+        val workouts = user!!.listOfWorkOut
+        workouts.add(workOutToAdd)
+        val loggedUser = Firebase.auth.currentUser
+        val userId = loggedUser!!.uid
+
+        if (user==null || loggedUser == null){
+            //val intent = Intent(this, M)
+            finish()
+            return
+        } else{
+            this.user = user
+            Firebase.firestore.collection("users").document(userId).update("listOfWorkOut", workouts).addOnSuccessListener {
+                Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
+                    val userOnDataBase = it.toObject(User::class.java)
+                    saveUserLocal(userOnDataBase!!)
+                }.addOnCompleteListener{
+                    finish()
+                }
+            }.addOnFailureListener {
+//                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
     private fun loadExercises(){
         val loggedUser = Firebase.auth.currentUser
         val userId = loggedUser!!.uid

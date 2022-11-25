@@ -83,7 +83,6 @@ class CreateWorkout : AppCompatActivity() {
 
                 val intent = Intent(this, WorkoutSelectExerciseActivity::class.java)
                 intent.putExtra("workout", workout)
-                uploadWorkOut(workout)
                 startActivity(intent)
             }
             else {
@@ -96,47 +95,5 @@ class CreateWorkout : AppCompatActivity() {
         onBackPressedDispatcher.onBackPressed()
         return true
     }
-    private fun uploadWorkOut(workOutToAdd: Workout){
-        val user = loadUser()
-        //val image = urimage.toString()
-        val workouts = user!!.listOfWorkOut
-        workouts.add(workOutToAdd)
-        val loggedUser = Firebase.auth.currentUser
-        val userId = loggedUser!!.uid
-
-        if (user==null || loggedUser == null){
-            //val intent = Intent(this, M)
-            finish()
-            return
-        } else{
-            this.user = user
-            Firebase.firestore.collection("users").document(userId).update("listOfWorkOut", workouts).addOnSuccessListener {
-                Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
-                    val userOnDataBase = it.toObject(User::class.java)
-                    saveUserLocal(userOnDataBase!!)
-                }.addOnCompleteListener{
-                    finish()
-                }
-            }.addOnFailureListener {
-//                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-    private fun loadUser(): User?{
-        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
-        val json = sp.getString("user", "NO_USER")
-        if(json == "NO_USER"){
-            return null
-        }else{
-            return Gson().fromJson(json, User::class.java)
-        }
-    }
-    private fun saveUserLocal(user: User){
-        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
-        val json = Gson().toJson(user)
-        sp.edit().putString("user", json).apply()
-    }
-
-
 
 }
