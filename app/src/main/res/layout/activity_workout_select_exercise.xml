@@ -23,37 +23,18 @@
 
         <TableRow
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <Spinner
-                android:id="@+id/WorkoutExerciseSpinner"
-                android:layout_width="0dip"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="12dp"
-                android:layout_weight="1"
-                android:background="@drawable/radio_button_background_drawable"
-                app:layout_gravity="fill_horizontal" />
-
+            android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/WorkoutExerciseSearch"
+                android:id="@+id/workoutExerciseSearch"
                 android:layout_width="0dip"
-                android:layout_height="48dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_weight="1"
-                android:background="@drawable/text_input_border"
+                android:layout_margin="16dp"
                 android:drawableStart="@drawable/ic_baseline_search_24"
+                android:background="@drawable/text_input_border"
                 android:ems="10"
-                android:hint="@string/exerciseSearch"
                 android:minHeight="48dp"
-                app:layout_gravity="fill_horizontal" />
+                android:hint="@string/exerciseSearch"
+                app:layout_gravity="fill"/>
 
         </TableRow>
     </TableLayout>
