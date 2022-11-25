@@ -70,6 +70,7 @@ class WorkoutSelectExerciseActivity : AppCompatActivity() {
             Toast.makeText(this, "EXERCISES SIZE: " + exercises.size, Toast.LENGTH_SHORT).show()
             Toast.makeText(this, stringExercises, Toast.LENGTH_LONG).show()
         }
+        //user.listOfWorkOut =
     }
 
     override fun onResume() {

@@ -83,6 +83,7 @@ class CreateWorkout : AppCompatActivity() {
 
                 val intent = Intent(this, WorkoutSelectExerciseActivity::class.java)
                 intent.putExtra("workout", workout)
+                uploadWorkOut(workout)
                 startActivity(intent)
             }
             else {
@@ -95,19 +96,11 @@ class CreateWorkout : AppCompatActivity() {
         onBackPressedDispatcher.onBackPressed()
         return true
     }
-    private fun uploadExercise(){
+    private fun uploadWorkOut(workOutToAdd: Workout){
         val user = loadUser()
         //val image = urimage.toString()
-        val workOutName = binding.workoutCreNameEditText.text.toString()
-        var workOutDescription = binding.workoutCreDescriptionEditText.text.toString()
-        var workOutRounds = binding.workoutCreRounds.value
-        var workOutRoundsExerciseRest = binding.workoutCreExerciseRest1.value
-        var workOutRoundsRest = binding.workoutCreRoundsRest1.value
-        val exercisesWorkOut: ArrayList<Exercise> = ArrayList()
-        val workout = Workout(workOutName,workOutDescription,workOutRounds,workOutRoundsExerciseRest,workOutRoundsRest,exercisesWorkOut)
         val workouts = user!!.listOfWorkOut
-        workouts.add(workout)
-
+        workouts.add(workOutToAdd)
         val loggedUser = Firebase.auth.currentUser
         val userId = loggedUser!!.uid
 
@@ -117,7 +110,7 @@ class CreateWorkout : AppCompatActivity() {
             return
         } else{
             this.user = user
-            Firebase.firestore.collection("users").document(userId).update("listOfExercise", workouts).addOnSuccessListener {
+            Firebase.firestore.collection("users").document(userId).update("listOfWorkOut", workouts).addOnSuccessListener {
                 Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
                     val userOnDataBase = it.toObject(User::class.java)
                     saveUserLocal(userOnDataBase!!)
