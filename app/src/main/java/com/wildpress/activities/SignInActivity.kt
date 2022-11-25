@@ -64,8 +64,8 @@ class SignInActivity : AppCompatActivity() {
                 val aboutMe = binding.signInAboutMeTextEdit.text.toString()
                 val listOfExercise = arrayListOf<Exercise>()
                 val listOfDiet = arrayListOf<Diet>()
-                val workOut = Workout("","",0,0,0, ArrayList())
-                val user = User(id!!,userName,firstName, lastName,aboutMe,listOfExercise,listOfDiet,workOut);
+                val listOfWorkOut = arrayListOf<Workout>()
+                val user = User(id!!,userName,firstName, lastName,aboutMe,listOfExercise,listOfDiet,listOfWorkOut);
                 Firebase.firestore.collection("users").document(id).set(user).addOnSuccessListener{
                     //sendVerificationEmail()
                     finish()

@@ -5,8 +5,14 @@ import android.os.Bundle
 import android.widget.NumberPicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityCreateWorkoutBinding
+import com.wildpress.model.Exercise
+import com.wildpress.model.User
 import com.wildpress.model.Workout
 
 
@@ -14,6 +20,7 @@ class CreateWorkout : AppCompatActivity() {
 
     //Binding
     private lateinit var binding : ActivityCreateWorkoutBinding
+    private lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,7 +95,55 @@ class CreateWorkout : AppCompatActivity() {
         onBackPressedDispatcher.onBackPressed()
         return true
     }
+    private fun uploadExercise(){
+        val user = loadUser()
+        //val image = urimage.toString()
+        val workOutName = binding.workoutCreNameEditText.text.toString()
+        var workOutDescription = binding.workoutCreDescriptionEditText.text.toString()
+        var workOutRounds = binding.workoutCreRounds.value
+        var workOutRoundsExerciseRest = binding.workoutCreExerciseRest1.value
+        var workOutRoundsRest = binding.workoutCreRoundsRest1.value
+        val exercisesWorkOut: ArrayList<Exercise> = ArrayList()
+        val workout = Workout(workOutName,workOutDescription,workOutRounds,workOutRoundsExerciseRest,workOutRoundsRest,exercisesWorkOut)
+        val workouts = user!!.listOfWorkOut
+        workouts.add(workout)
 
-    
+        val loggedUser = Firebase.auth.currentUser
+        val userId = loggedUser!!.uid
+
+        if (user==null || loggedUser == null){
+            //val intent = Intent(this, M)
+            finish()
+            return
+        } else{
+            this.user = user
+            Firebase.firestore.collection("users").document(userId).update("listOfExercise", workouts).addOnSuccessListener {
+                Firebase.firestore.collection("users").document(userId).get().addOnSuccessListener {
+                    val userOnDataBase = it.toObject(User::class.java)
+                    saveUserLocal(userOnDataBase!!)
+                }.addOnCompleteListener{
+                    finish()
+                }
+            }.addOnFailureListener {
+//                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    private fun loadUser(): User?{
+        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
+        val json = sp.getString("user", "NO_USER")
+        if(json == "NO_USER"){
+            return null
+        }else{
+            return Gson().fromJson(json, User::class.java)
+        }
+    }
+    private fun saveUserLocal(user: User){
+        val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
+        val json = Gson().toJson(user)
+        sp.edit().putString("user", json).apply()
+    }
+
+
 
 }
