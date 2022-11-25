@@ -6,8 +6,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class Workout(val name: String = "", val description: String = "", val rounds: Int = 1, val exerciseRest: Int = 30, val roundRest: Int = 60, val exercises: ArrayList<Exercise> = ArrayList()): Cardable, Parcelable {
-    override fun getImage(): Int {
-        return R.drawable.ic_google
+    override fun getImage(): String {
+        if(exercises.size < 1)
+            return ""
+
+        var indexLast = exercises.size - 1
+        return exercises[(0..indexLast).random()].image
     }
 
     override fun getTitle(): String {
@@ -24,16 +28,18 @@ class Workout(val name: String = "", val description: String = "", val rounds: I
 
         var totalRestTime = (exerciseRest*(exercises.size-1)) + (roundRest*(rounds-1))
 
-        var aproxExerciseTime = 15
-        var totalExerciseTime = aproxExerciseTime * exercises.size * rounds
+        var totalExerciseTime = 0
+        exercises.forEach{
+            totalExerciseTime += (it.repetitions*rounds*2)//Change!
+        }
 
         return totalRestTime + totalExerciseTime
     }
 
-    fun burnedCalories(): Int {//Change!
+    fun burnedCalories(): Int {
         var calories = 0
         exercises.forEach{
-            calories += 20
+            calories += (it.repetitions*rounds*2)//Change!
         }
         return calories
     }

@@ -91,7 +91,7 @@ class CreateExerciseActivity : AppCompatActivity() {
             }
         }
     }
-    private fun loadUser():User?{
+    private fun loadUser(): User?{
         val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
         val json = sp.getString("user", "NO_USER")
         if(json == "NO_USER"){

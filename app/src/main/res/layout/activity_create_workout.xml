@@ -11,41 +11,19 @@
         layout='@layout/toolbar' />
 
 
-    <!-- Image -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/workoutCreBtnTableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workoutCreToolbar"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/workoutCreToolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/exerciseCreToolbar">
-
-            <ImageView
-                android:id="@+id/workoutCreImage"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="42dp"
-                android:background="@drawable/image_border"
-                android:contentDescription="Exercise Image"
-                android:maxWidth="120dp"
-                android:maxHeight="150dp"
-                android:minWidth="120dp"
-                android:minHeight="150dp"
-                android:padding="1dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_camera"
-                tools:srcCompat="@android:drawable/ic_menu_camera" />
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/workoutCreNameText"
@@ -56,7 +34,7 @@
                 android:text="@string/createWorkoutName"
                 android:theme="@style/BlackTitleText"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workoutCreImage" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/workoutCreNameEditText"
@@ -72,6 +50,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/workoutCreNameText" />
+
+            <TextView
+                android:id="@+id/workoutCreDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/exerciseCreDescription"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreNameEditText" />
+
 
             <EditText
                 android:id="@+id/workoutCreDescriptionEditText"
@@ -89,17 +79,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/workoutCreDescriptionText" />
-
-            <TextView
-                android:id="@+id/workoutCreDescriptionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/exerciseCreDescription"
-                android:theme="@style/BlackTitleText"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workoutCreNameEditText" />
 
             <TextView
                 android:id="@+id/workoutCreRoundsText"
@@ -126,9 +105,9 @@
                 <TableRow
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:stretchColumns="*"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:stretchColumns="*"
                     app:layout_constraintStart_toStartOf="parent">
 
                     <NumberPicker
@@ -217,7 +196,6 @@
                 android:id="@+id/workoutCreTableLayoutExerciseRest"
                 android:layout_width="wrap_content"
                 android:layout_height="170dp"
-
                 android:layout_marginTop="10dp"
                 android:background="@drawable/boxed_text"
                 android:minHeight="70dp"
@@ -262,21 +240,38 @@
                 </TableRow>
             </TableLayout>
 
-            <Button
-                android:id="@+id/workoutCreSubmitBtn"
-                android:layout_width="0dip"
-                android:layout_height="48dp"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="42dp"
-                android:layout_weight="1"
-                android:text="@string/dietCreSubmitBtn"
-                android:theme="@style/ButtonTheme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workoutCreTableLayoutExerciseRest" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <TableLayout
+        android:id="@+id/workoutCreBtnTableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:minHeight="70dp"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/workoutCreSubmitBtn"
+                android:layout_width="0dip"
+                android:layout_margin="16dp"
+                android:text="@string/dietCreSubmitBtn"
+                android:theme="@style/ButtonTheme"
+                app:layout_gravity="fill" />
+
+        </TableRow>
+
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

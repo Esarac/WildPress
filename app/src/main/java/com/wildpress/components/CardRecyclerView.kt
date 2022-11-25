@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.wildpress.R
 import com.wildpress.model.Cardable
 
@@ -38,7 +40,7 @@ class CardRecyclerView<T: Cardable>(items: ArrayList<T>) : RecyclerView.Adapter<
 
         override fun setItem(item: T) {
             super.setItem(item)
-            this.cardImage.setImageResource(item.getImage())
+            Glide.with(itemView).load(item.getImage()).centerCrop().into(cardImage)
             this.cardTitle.text = item.getTitle()
         }
     }

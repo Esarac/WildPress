@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.wildpress.model.Exercise
 
 class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? = null, readyBtn: Button? = null) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
@@ -30,7 +31,7 @@ class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? =
 
         override fun setItem(item: Exercise) {
             super.setItem(item)
-            this.exerciseImage.setImageResource(R.drawable.ic_google)
+            Glide.with(itemView).load(item.image).centerCrop().into(this.exerciseImage)
             this.exerciseName.text = item.name
         }
         fun changeTextViewColor(backgroundColor: Int, textColor: Int) {

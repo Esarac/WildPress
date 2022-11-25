@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    private fun getUser():User?{
+    private fun getUser(): User?{
         val sp = getSharedPreferences("WildPress", MODE_PRIVATE)
         val json = sp.getString("user", "NO_USER")
         if(json == "NO_USER"){

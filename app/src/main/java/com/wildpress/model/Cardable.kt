@@ -1,6 +1,6 @@
 package com.wildpress.model
 
 interface Cardable {
-    public fun getImage(): Int;
+    public fun getImage(): String;
     public fun getTitle(): String;
 }

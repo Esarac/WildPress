@@ -19,19 +19,6 @@ import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
 
 class WorkoutStartActivity: AppCompatActivity() {
-    //Constant
-    private val MOTIVATIONAL_QUOTES: Array<String> = arrayOf(
-        "Let's get wild",
-        "No pain, no gain",
-        "Yeah buddy!",
-        "Zyzz is watching us",
-        "Embrace masculinity",
-        "You mirin brah?",
-        "King",
-        "You got this",
-        "Lightweight baby!",
-    )
-
     //Binding
     private lateinit var binding : ActivityWorkoutStartBinding
 
@@ -64,6 +51,9 @@ class WorkoutStartActivity: AppCompatActivity() {
 
             //Toolbar
             Toolbar().showToolbar(this, this.workout.getTitle(), true)
+
+            //GlobalTimer (First second)
+            binding.workoutStartGlobalTimerText.text = "Let's get Wild!"
         }
 
         //OnClick
@@ -184,8 +174,7 @@ class WorkoutStartActivity: AppCompatActivity() {
 
         binding.workoutStartExerciseNameText.text = actualExercise.name
 
-        val quoteIndexLast = (MOTIVATIONAL_QUOTES.size-1)
-        binding.workoutStartRestTimerText.text = MOTIVATIONAL_QUOTES[(0..quoteIndexLast).random()]
+        binding.workoutStartRestTimerText.text = "x"+actualExercise.repetitions.toString()
 
         Glide.with(this).load(actualExercise.image.toUri()).centerCrop().into(binding.workoutStartImage)
     }

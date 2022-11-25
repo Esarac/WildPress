@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Diet">
 
-    <Button
-        android:id="@+id/createDietBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/createDietBtn"
-        android:theme="@style/ButtonTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/dietTitle"
         android:layout_width="0dp"
@@ -25,18 +14,46 @@
         android:layout_marginTop="36dp"
         android:text="@string/dietsTitle"
         android:theme="@style/BlackTitleText"
-        app:layout_constraintEnd_toStartOf="@+id/createDietBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dietRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createDietBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/dietTitle"
+        app:layout_constraintBottom_toTopOf="@+id/dietTableLayout"/>
+
+    <TableLayout
+        android:id="@+id/dietTableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:minHeight="70dp"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/createDietBtn"
+                android:layout_width="0dip"
+                android:layout_margin="16dp"
+                android:text="@string/createDietBtn"
+                android:theme="@style/ButtonTheme"
+                app:layout_gravity="fill"/>
+
+        </TableRow>
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
