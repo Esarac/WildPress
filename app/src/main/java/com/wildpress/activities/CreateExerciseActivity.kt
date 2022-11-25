@@ -28,7 +28,6 @@ import java.util.concurrent.TimeUnit
 
 class CreateExerciseActivity : AppCompatActivity() {
 
-
     //Binding
     private lateinit var binding : ActivityCreateExerciseBinding
     private lateinit var user: User
@@ -56,9 +55,6 @@ class CreateExerciseActivity : AppCompatActivity() {
             selectImage()
         }
     }
-
-
-
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
