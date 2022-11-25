@@ -18,6 +18,26 @@ class Workout(val name: String = "", val description: String = "", val rounds: I
         exercises.add(exercise)
     }
 
+    fun totalTime(): Int {
+        if((exercises.size < 1) || (rounds < 1))
+            return 0
+
+        var totalRestTime = (exerciseRest*(exercises.size-1)) + (roundRest*(rounds-1))
+
+        var aproxExerciseTime = 15
+        var totalExerciseTime = aproxExerciseTime * exercises.size * rounds
+
+        return totalRestTime + totalExerciseTime
+    }
+
+    fun burnedCalories(): Int {//Change!
+        var calories = 0
+        exercises.forEach{
+            calories += 20
+        }
+        return calories
+    }
+
     fun exercisesSize() : Int = this.exercises.size
 
     fun totalExercisesSize(): Int = this.exercises.size * this.rounds

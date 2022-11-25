@@ -75,12 +75,10 @@ class Workout : Fragment(R.layout.fragment_workout) {
         binding.workoutRecyclerView.adapter = this.adapter
 
         //Listeners
-        binding.createButton.setOnClickListener {
-            adapter.addItem(Workout(binding.nameEditText.text.toString(), binding.descriptionEditText.text.toString()))
-        }
         binding.workoutCreateBtn.setOnClickListener {//Change
             startActivity(Intent(activity, CreateWorkout::class.java))
         }
+
         binding.workoutExercisesBtn.setOnClickListener {
             startActivity(Intent(activity, ExerciseActivity::class.java))
         }

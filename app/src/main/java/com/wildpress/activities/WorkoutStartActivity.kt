@@ -192,18 +192,6 @@ class WorkoutStartActivity: AppCompatActivity() {
 
     //Aux fun
     private fun timeFormat(durationSeconds: Int): String{
-//        var hours = 0
-//        var minutes = 0
-//        var seconds = durationSeconds
-//        if (seconds >= 3600) {
-//            hours = seconds / 3600
-//            seconds -= hours * 3600
-//        }
-//        if (seconds >= 60) {
-//            minutes = seconds / 60
-//            seconds -= minutes * 60
-//        }
-//        return Formatter().format("%1\$02d:%2\$02d:%3\$02d", hours, minutes, seconds).toString()
         val millis = (durationSeconds*1000).toLong()
         val hours = TimeUnit.MILLISECONDS.toHours(millis) % 24
         val minutes = TimeUnit.MILLISECONDS.toMinutes(millis) % 60
@@ -211,7 +199,7 @@ class WorkoutStartActivity: AppCompatActivity() {
 
         return when {
             hours == 0L && minutes == 0L -> String.format(
-                (Formatter().format("%02d", seconds).toString()) + " s"
+                (Formatter().format("%02d", seconds).toString()) + "s"
             )
 
             hours == 0L && minutes > 0L -> String.format(

@@ -6,55 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Workout">
 
+    <TextView
+        android:id="@+id/workoutTitle"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/workoutsTitle"
+        android:theme="@style/BlackTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/workoutRecyclerView"
-        android:layout_width="391dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/workoutTableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionEditText" />
-
-    <Button
-        android:id="@+id/createButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/descriptionEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nameEditText"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/createButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/descriptionEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Description"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/createButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
-
+        app:layout_constraintTop_toBottomOf="@+id/workoutTitle"
+        app:layout_constraintBottom_toTopOf="@+id/workoutTableLayout"/>
 
     <TableLayout
         android:id="@+id/workoutTableLayout"
@@ -77,26 +48,18 @@
             <Button
                 android:id="@+id/workoutCreateBtn"
                 android:layout_width="0dip"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="12dp"
-                android:layout_weight="1"
+                android:layout_margin="16dp"
                 android:text="@string/workoutCreateWorkoutBtn"
                 android:theme="@style/ButtonTheme"
-                app:layout_gravity="fill_horizontal" />
+                app:layout_gravity="fill"/>
 
             <Button
                 android:id="@+id/workoutExercisesBtn"
                 android:layout_width="0dip"
-                android:layout_height="48dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_weight="1"
+                android:layout_margin="16dp"
                 android:text="@string/workoutExerciseBtn"
                 android:theme="@style/ButtonTheme"
-                app:layout_gravity="fill_horizontal" />
+                app:layout_gravity="fill" />
 
         </TableRow>
     </TableLayout>

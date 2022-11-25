@@ -10,179 +10,159 @@
         android:id="@+id/toolbarWorkout"
         layout='@layout/toolbar' />
 
-    <ImageView
-        android:id="@+id/workoutImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarWorkout"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TableLayout
         android:id="@+id/workoutStatsTableLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
         android:stretchColumns="*"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workoutImage">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarWorkout">
 
         <TableRow
-            android:layout_width="0dp"
+            android:id="@+id/workoutStatsFirstRow"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:gravity="center"
+            android:layout_margin="8dp">
 
-            <TextView
-                android:id="@+id/workoutTimeValue"
+            <TableLayout
+                android:id="@+id/workoutStatsTimeCol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_weight=".5"
-                android:text="0:41h"
-                android:theme="@style/ProfileTextTitle2" />
-
-            <TextView
-                android:id="@+id/workoutCaloriesValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight=".5"
-                android:text="392"
-                android:theme="@style/ProfileTextTitle2" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/workoutTimeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="63dp"
-                android:layout_weight=".5"
-                android:text="@string/workoutTime"
-                android:theme="@style/WorkoutText" />
-
-            <TextView
-                android:id="@+id/workoutCaloriesText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:text="@string/workoutCalories"
-                android:theme="@style/WorkoutText" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-
-            <TableRow
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_gravity="center"
+                android:stretchColumns="*">
 
                 <TextView
-                    android:id="@+id/workoutExerciseRestValue"
+                    android:id="@+id/workoutTimeValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="25dp"
-                    android:background="@drawable/boxed_text"
-                    android:text="0:40m"
-                    android:theme="@style/WorkoutBoxedText"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    android:padding="8dp"
+                    android:text="@string/workoutTimerDefault"
+                    android:theme="@style/ProfileTextTitle2"/>
 
-            </TableRow>
+                <TextView
+                    android:id="@+id/workoutTimeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/workoutTime"
+                    android:theme="@style/WorkoutText"/>
 
-            <TableRow
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/workoutStatsRoundsCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:stretchColumns="*">
 
                 <TextView
                     android:id="@+id/workoutRoundsValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="25dp"
+                    android:padding="8dp"
                     android:background="@drawable/boxed_text"
-                    android:minWidth="30dp"
                     android:text="3"
-                    android:theme="@style/WorkoutBoxedText"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:theme="@style/WorkoutTimerText"/>
 
-            </TableRow>
+                <TextView
+                    android:id="@+id/workoutRoundsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/workoutRounds"
+                    android:theme="@style/WorkoutText"/>
 
-            <TableRow
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/workoutStatsCaloriesCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:stretchColumns="*">
+
+                <TextView
+                    android:id="@+id/workoutCaloriesValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="360"
+                    android:theme="@style/ProfileTextTitle2"/>
+
+                <TextView
+                    android:id="@+id/workoutCaloriesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/workoutCalories"
+                    android:theme="@style/WorkoutText" />
+
+            </TableLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/workoutStatsThirdRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="8dp">
+
+            <TableLayout
+                android:id="@+id/workoutStatsExerciseRestCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:stretchColumns="*">
+
+                <TextView
+                    android:id="@+id/workoutExerciseRestValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/workoutTimerDefault"
+                    android:theme="@style/ProfileTextTitle2"/>
+
+                <TextView
+                    android:id="@+id/workoutExerciseRestLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/workoutRest"
+                    android:theme="@style/WorkoutText"/>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/workoutStatsRoundRestCol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:stretchColumns="*">
 
                 <TextView
                     android:id="@+id/workoutRoundRestValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="25dp"
-                    android:background="@drawable/boxed_text"
-                    android:text="1:00m"
-                    android:theme="@style/WorkoutBoxedText"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:padding="8dp"
+                    android:text="@string/workoutTimerDefault"
+                    android:theme="@style/ProfileTextTitle2"/>
 
-            </TableRow>
+                <TextView
+                    android:id="@+id/workoutRoundRestLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/workoutRoundRest"
+                    android:theme="@style/WorkoutText"/>
+
+            </TableLayout>
+
         </TableRow>
 
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/workoutExerciseRestText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_weight=".5"
-                android:text="@string/workoutRest"
-                android:theme="@style/WorkoutText"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/workoutRoundsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:text="@string/workoutRounds"
-                android:theme="@style/WorkoutText"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:id="@+id/workoutRoundRestText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_weight=".5"
-                android:text="@string/workoutRoundRest"
-                android:theme="@style/WorkoutText"
-                app:layout_constraintEnd_toEndOf="parent" />
-        </TableRow>
     </TableLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -190,26 +170,41 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/workoutStartBtn"
+        app:layout_constraintBottom_toTopOf="@+id/workoutStartBtnTableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/workoutStatsTableLayout"
         app:layout_constraintVertical_bias="0.468" />
 
-    <Button
-        android:id="@+id/workoutStartBtn"
-        android:layout_width="0dip"
+    <TableLayout
+        android:id="@+id/workoutStartBtnTableLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:text="@string/workoutStartBtn"
-        android:theme="@style/ButtonTheme"
+        android:background="@color/primary"
+        android:minHeight="70dp"
+        android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/workoutStartBtn"
+                android:layout_width="0dip"
+                android:layout_margin="16dp"
+                android:text="@string/workoutStartBtn"
+                android:theme="@style/ButtonTheme"
+                app:layout_gravity="fill" />
+
+        </TableRow>
+
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
