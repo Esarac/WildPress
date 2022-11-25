@@ -14,6 +14,7 @@ import com.wildpress.databinding.ActivitySignInBinding
 import com.wildpress.model.Diet
 import com.wildpress.model.Exercise
 import com.wildpress.model.User
+import com.wildpress.model.Workout
 
 class SignInActivity : AppCompatActivity() {
 
@@ -63,7 +64,8 @@ class SignInActivity : AppCompatActivity() {
                 val aboutMe = binding.signInAboutMeTextEdit.text.toString()
                 val listOfExercise = arrayListOf<Exercise>()
                 val listOfDiet = arrayListOf<Diet>()
-                val user = User(id!!,userName,firstName, lastName,aboutMe,listOfExercise,listOfDiet);
+                val workOut = Workout("","",0,0,0, ArrayList())
+                val user = User(id!!,userName,firstName, lastName,aboutMe,listOfExercise,listOfDiet,workOut);
                 Firebase.firestore.collection("users").document(id).set(user).addOnSuccessListener{
                     //sendVerificationEmail()
                     finish()
