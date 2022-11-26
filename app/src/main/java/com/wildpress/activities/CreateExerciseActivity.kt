@@ -47,8 +47,12 @@ class CreateExerciseActivity : AppCompatActivity() {
 
         //Listeners
         binding.exerciseCreSubmitBtn.setOnClickListener {
-            uploadImage()
-            uploadExercise()
+            if(urimage != null){
+                uploadImage()
+                uploadExercise()
+            }else{
+                Toast.makeText(this@CreateExerciseActivity, "Select an image", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.exerciseCreImage.setOnClickListener{

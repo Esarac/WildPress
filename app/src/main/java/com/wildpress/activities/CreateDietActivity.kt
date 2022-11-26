@@ -40,8 +40,8 @@ class CreateDietActivity : AppCompatActivity() {
 
         //Listeners
         binding.dietCreSubmitBtn.setOnClickListener {
-            uploadDiet()
             uploadImage()
+            uploadDiet()
         }
 
         binding.dietCreImage.setOnClickListener{
