@@ -10,11 +10,13 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
+import com.wildpress.components.CardRecyclerView
 import com.wildpress.components.ExerciseRecyclerView
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityExerciseBinding
 import com.wildpress.model.Exercise
 import com.wildpress.model.User
+import com.wildpress.model.Workout
 
 class ExerciseActivity : AppCompatActivity() {
 
@@ -38,6 +40,7 @@ class ExerciseActivity : AppCompatActivity() {
         binding.exerciseCreateBtn.setOnClickListener {
             startActivity(Intent(this, CreateExerciseActivity::class.java))
         }
+
     }
 
     override fun onResume() {
@@ -46,10 +49,12 @@ class ExerciseActivity : AppCompatActivity() {
 
         binding.exerciseRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
 
-//        Toast.makeText(this, this.exercises.toString(), Toast.LENGTH_SHORT).show()
         val exerciseAdapter = ExerciseRecyclerView(this.exercises)
         exerciseAdapter.notifyDataSetChanged()
         binding.exerciseRecyclerView.adapter = exerciseAdapter
+
+        //Listener
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -31,7 +31,7 @@ class CreateExerciseActivity : AppCompatActivity() {
     //Binding
     private lateinit var binding : ActivityCreateExerciseBinding
     private lateinit var user: User
-    private lateinit var urimage : Uri
+    private var uriImage : Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +47,7 @@ class CreateExerciseActivity : AppCompatActivity() {
 
         //Listeners
         binding.exerciseCreSubmitBtn.setOnClickListener {
-            if(urimage != null){
+            if(uriImage != null){
                 uploadImage()
                 uploadExercise()
             }else{
@@ -67,7 +67,7 @@ class CreateExerciseActivity : AppCompatActivity() {
 
     private fun uploadExercise(){
         val user = loadUser()
-        val image = urimage.toString()
+        val image = uriImage.toString()
         val exerciseName = binding.exerciseCreNameEditText.text.toString()
         var muscleToTrain = binding.exerciseCreMuscleSpinner.selectedItem.toString()
         var exerciseDescription = binding.exerciseCreDescriptionEditText.text.toString()
@@ -122,31 +122,26 @@ class CreateExerciseActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 100 && resultCode == RESULT_OK){
-            urimage = data?.data!!
-            binding.exerciseCreImage.setImageURI(urimage)
+            uriImage = data?.data!!
+            binding.exerciseCreImage.setImageURI(uriImage)
         }
     }
 
     private fun uploadImage(){
-        val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Uploading")
-        progressDialog.setCancelable(false)
-        progressDialog.show()
-
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
         val fileName = formatter.format(now)
         val storageReference  = FirebaseStorage.getInstance().getReference("exerciseImages/$fileName")
 
-        storageReference.putFile(urimage)
-            .addOnSuccessListener {
-                binding.exerciseCreImage.setImageURI(null)
-                Toast.makeText(this@CreateExerciseActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()
-                if(progressDialog.isShowing) progressDialog.dismiss()
-                onSupportNavigateUp()
-            }.addOnFailureListener{
-                if(progressDialog.isShowing) progressDialog.dismiss()
-                Toast.makeText(this@CreateExerciseActivity, "Failed to upload", Toast.LENGTH_SHORT).show()
-            }
+        if(uriImage != null){
+            storageReference.putFile(uriImage!!)
+                .addOnSuccessListener {
+                    binding.exerciseCreImage.setImageURI(null)
+//                    Toast.makeText(this@CreateExerciseActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener{
+//                    Toast.makeText(this@CreateExerciseActivity, "Failed to upload", Toast.LENGTH_SHORT).show()
+                }
+        }
+
     }
 }
