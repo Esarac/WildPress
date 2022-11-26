@@ -115,10 +115,6 @@ class CreateDietActivity : AppCompatActivity() {
     }
 
     private fun uploadImage(){
-        val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Uploading")
-        progressDialog.setCancelable(false)
-        progressDialog.show()
 
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
@@ -129,10 +125,8 @@ class CreateDietActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 binding.dietCreImage.setImageURI(null)
                 Toast.makeText(this@CreateDietActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()
-                if(progressDialog.isShowing) progressDialog.dismiss()
                 onSupportNavigateUp()
             }.addOnFailureListener{
-                if(progressDialog.isShowing) progressDialog.dismiss()
                 Toast.makeText(this@CreateDietActivity, "Failed to upload", Toast.LENGTH_SHORT).show()
             }
     }
