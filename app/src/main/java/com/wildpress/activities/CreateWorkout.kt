@@ -34,23 +34,23 @@ class CreateWorkout : AppCompatActivity() {
         binding.workoutCreRoundsRest1.minValue = 0
         binding.workoutCreRoundsRest1.maxValue = 60
         binding.workoutCreRoundsRest1.value = 1
-        binding.workoutCreRoundsRest1.setFormatter(NumberPicker.Formatter { i -> String.format("%02d", i) })
+        binding.workoutCreRoundsRest1.setFormatter { i -> String.format("%02d", i) }
 
         binding.workoutCreRoundsRest2.minValue = 0
         binding.workoutCreRoundsRest2.maxValue = 59
         binding.workoutCreRoundsRest2.value = 0
-        binding.workoutCreRoundsRest2.setFormatter(NumberPicker.Formatter { i -> String.format("%02d", i) })
+        binding.workoutCreRoundsRest2.setFormatter { i -> String.format("%02d", i) }
 
         //Exercise Rest
         binding.workoutCreExerciseRest1.minValue = 0
         binding.workoutCreExerciseRest1.maxValue = 60
         binding.workoutCreExerciseRest1.value = 1
-        binding.workoutCreExerciseRest1.setFormatter(NumberPicker.Formatter { i -> String.format("%02d", i) })
+        binding.workoutCreExerciseRest1.setFormatter { i -> String.format("%02d", i) }
 
         binding.workoutCreExerciseRest2.minValue = 0
         binding.workoutCreExerciseRest2.maxValue = 59
         binding.workoutCreExerciseRest2.value = 0
-        binding.workoutCreExerciseRest2.setFormatter(NumberPicker.Formatter { i -> String.format("%02d", i) })
+        binding.workoutCreExerciseRest2.setFormatter { i -> String.format("%02d", i) }
 
         //Rounds
         binding.workoutCreRounds.minValue = 1
@@ -95,5 +95,4 @@ class CreateWorkout : AppCompatActivity() {
         onBackPressedDispatcher.onBackPressed()
         return true
     }
-
 }

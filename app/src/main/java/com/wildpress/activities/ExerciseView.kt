@@ -29,8 +29,9 @@ class ExerciseView : AppCompatActivity() {
             this.exercise = exercise;
 
             binding.exerciseNameText.text = this.exercise.name
-            binding.exerciseDescriptionText.text = this.exercise.name
-            binding.exerciseMuscleText.text = this.exercise.name
+            binding.exerciseDescriptionText.text = this.exercise.description
+            binding.exerciseMuscleText.text = this.exercise.muscle.toString()
+            binding.exerciseRepetitionsText.text = this.exercise.repetitions.toString()
 
             //Toolbar
             Toolbar().showToolbar(this, this.exercise.name, true)

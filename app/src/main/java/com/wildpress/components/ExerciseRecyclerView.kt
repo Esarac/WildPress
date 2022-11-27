@@ -1,5 +1,7 @@
 package com.wildpress.components
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
@@ -10,15 +12,18 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.wildpress.activities.ExerciseView
 import com.wildpress.model.Exercise
 
-class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? = null, readyBtn: Button? = null) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
+class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? = null, readyBtn: Button? = null, context: Context? = null) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
     private val exercises: ArrayList<Exercise> = exercises
     private var itemSelectedList = mutableListOf<Int>()
     private val selectedTextView: TextView? = selected
     private var selectMode: Boolean = false
     private val readyBtn: Button? = readyBtn
+    private val context = context
 
     open inner class ExerciseViewHolder(itemView: View) : ViewHolder<Exercise>(itemView){
         private var exerciseImage: ImageView
@@ -87,6 +92,12 @@ class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? =
             if(selectMode && !item.selected) {
                 select(item, viewHolder, i)
             }
+            else if(!selectMode && !item.selected) {
+                val intent = Intent(this.context, ExerciseView::class.java)
+                intent.putExtra("exercise", exercises[i])
+                context?.startActivity(intent)
+                Toast.makeText(context, exercises[i].name, Toast.LENGTH_LONG).show()
+            }
             else {
                 unSelect(item, viewHolder, i)
 
@@ -94,8 +105,6 @@ class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? =
                     selectMode = false
                     readyBtn?.isEnabled = false
                 }
-
-
             }
         }
     }

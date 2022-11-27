@@ -74,6 +74,13 @@
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
+    <style name="WhiteTitleText2">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>3
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
     <style name="AppNameText">
         <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>s
