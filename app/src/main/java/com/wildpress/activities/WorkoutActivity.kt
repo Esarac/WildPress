@@ -51,7 +51,7 @@ class WorkoutActivity : AppCompatActivity() {
 
             //Recycler View
             binding.workoutExercisesRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
-            binding.workoutExercisesRecyclerView.adapter = ExerciseRecyclerView(this.workout.exercises)
+            binding.workoutExercisesRecyclerView.adapter = ExerciseRecyclerView(this.workout.exercises, context=this)
 
             //Toolbar
             Toolbar().showToolbar(this, this.workout.getTitle(), true)
