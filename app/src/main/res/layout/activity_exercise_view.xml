@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateExerciseActivity">
+
+    <include
+        android:id="@+id/exerciseViewToolbar"
+        layout='@layout/toolbar' />
+
+
+    <!-- Image -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseViewToolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/exerciseCreToolbar">
+
+            <ImageView
+                android:id="@+id/workoutCreImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="42dp"
+                android:background="@drawable/image_border"
+                android:contentDescription="Exercise Image"
+                android:maxWidth="120dp"
+                android:maxHeight="150dp"
+                android:minWidth="120dp"
+                android:minHeight="150dp"
+                android:padding="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                tools:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <TextView
+                android:id="@+id/exerciseNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/createWorkoutName"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workoutCreImage" />
+
+            <TextView
+                android:id="@+id/exerciseNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:theme="@style/ProfileTextTitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseNameTextView" />
+
+            <TextView
+                android:id="@+id/exerciseDescriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/exerciseCreDescription"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseNameText" />
+
+            <TextView
+                android:id="@+id/exerciseDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:theme="@style/ProfileTextTitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseDescriptionTextView" />
+
+            <TextView
+                android:id="@+id/exerciseMuscleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/exerciseViewMuscle"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseDescriptionText" />
+
+            <TextView
+                android:id="@+id/exerciseMuscleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:theme="@style/ProfileTextTitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseMuscleTextView" />
+
+            <TextView
+                android:id="@+id/exerciseRepetitionsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/exerciseViewRepetitions"
+                android:theme="@style/BlackTitleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseMuscleText" />
+
+            <TextView
+                android:id="@+id/exerciseRepetitionsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:theme="@style/ProfileTextTitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exerciseRepetitionsTextView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

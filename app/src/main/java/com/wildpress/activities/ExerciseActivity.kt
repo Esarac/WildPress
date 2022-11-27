@@ -1,6 +1,5 @@
 package com.wildpress.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,13 +9,11 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
-import com.wildpress.components.CardRecyclerView
 import com.wildpress.components.ExerciseRecyclerView
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityExerciseBinding
 import com.wildpress.model.Exercise
 import com.wildpress.model.User
-import com.wildpress.model.Workout
 
 class ExerciseActivity : AppCompatActivity() {
 

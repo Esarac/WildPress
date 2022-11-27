@@ -97,4 +97,7 @@
     <string name="profRoutines">Published routines</string>
     <string name="profFavoriteExercise">Favorite exercise</string>
     <string name="profLeague">League</string>
+    <!-- ExerciseView -->
+    <string name="exerciseViewMuscle">Muscle</string>
+    <string name="exerciseViewRepetitions">Repetitions</string>
 </resources>
