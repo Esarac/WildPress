@@ -47,7 +47,7 @@ class WorkoutSelectExerciseActivity : AppCompatActivity() {
             this.workout = workout;
             //Recycler View
             binding.WorkoutExerciseRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
-            adapter = ExerciseRecyclerView(this.exercises, binding.workoutExercisesBtn,  binding.workoutExercisesBtn, this)
+            adapter = ExerciseRecyclerView(this.exercises, binding.exerciseSelectedExercises, true, binding.workoutExercisesBtn, this)
             binding.WorkoutExerciseRecyclerView.adapter = adapter
 
             //Toolbar
@@ -83,7 +83,7 @@ class WorkoutSelectExerciseActivity : AppCompatActivity() {
         binding.WorkoutExerciseRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
 
 //        Toast.makeText(this, this.exercises.toString(), Toast.LENGTH_SHORT).show()
-        adapter = ExerciseRecyclerView(this.exercises, binding.exerciseSelectedExercises, binding.workoutExercisesBtn, this)
+        adapter = ExerciseRecyclerView(this.exercises, binding.exerciseSelectedExercises, true, binding.workoutExercisesBtn, this)
         adapter.notifyDataSetChanged()
         binding.WorkoutExerciseRecyclerView.adapter = adapter
     }

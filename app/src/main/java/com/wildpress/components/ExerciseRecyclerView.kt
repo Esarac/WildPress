@@ -17,13 +17,14 @@ import com.bumptech.glide.Glide
 import com.wildpress.activities.ExerciseView
 import com.wildpress.model.Exercise
 
-class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? = null, readyBtn: Button? = null, context: Context? = null) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
+class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? = null, select: Boolean? = false, readyBtn: Button? = null, context: Context? = null) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
     private val exercises: ArrayList<Exercise> = exercises
     private var itemSelectedList = mutableListOf<Int>()
     private val selectedTextView: TextView? = selected
     private var selectMode: Boolean = false
     private val readyBtn: Button? = readyBtn
     private val context = context
+    private val select = select
 
     open inner class ExerciseViewHolder(itemView: View) : ViewHolder<Exercise>(itemView){
         private var exerciseImage: ImageView
@@ -77,12 +78,14 @@ class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? =
         viewHolder.setItem(item)
 
         viewHolder.itemView.setOnLongClickListener {
-            if(!item.selected){
-                select(item, viewHolder, i)
+            if(select == true) {
+                if(!item.selected){
+                    select(item, viewHolder, i)
 
-                if(itemSelectedList.size == 1) {
-                    selectMode = true
-                    readyBtn?.isEnabled = true
+                    if(itemSelectedList.size == 1) {
+                        selectMode = true
+                        readyBtn?.isEnabled = true
+                    }
                 }
             }
             true

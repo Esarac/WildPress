@@ -46,7 +46,7 @@ class ExerciseActivity : AppCompatActivity() {
 
         binding.exerciseRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
 
-        val exerciseAdapter = ExerciseRecyclerView(this.exercises)
+        val exerciseAdapter = ExerciseRecyclerView(this.exercises, context = this)
         exerciseAdapter.notifyDataSetChanged()
         binding.exerciseRecyclerView.adapter = exerciseAdapter
 
