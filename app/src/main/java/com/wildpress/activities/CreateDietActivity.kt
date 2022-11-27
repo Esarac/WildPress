@@ -27,7 +27,8 @@ class CreateDietActivity : AppCompatActivity() {
     //Binding
     private lateinit var binding : ActivityCreateDietBinding
     private lateinit var user: User
-    private lateinit var urimage : Uri
+    private var urimage : Uri? = null
+    private var imgName: String = ""
 
     override fun onCreate(savedInstanceStat: Bundle?) {
         super.onCreate(savedInstanceStat)
@@ -40,8 +41,10 @@ class CreateDietActivity : AppCompatActivity() {
 
         //Listeners
         binding.dietCreSubmitBtn.setOnClickListener {
-            uploadImage()
-            uploadDiet()
+            if(urimage != null){
+                uploadImage()
+                uploadDiet()
+            }
         }
 
         binding.dietCreImage.setOnClickListener{
@@ -57,11 +60,10 @@ class CreateDietActivity : AppCompatActivity() {
     }
     private fun uploadDiet(){
         val user = loadUser()
-        val image = urimage.toString()
         val dietName = binding.dietCreNameEditText.text.toString()
         var dietDescription = binding.dietCreDescriptionEditTex.text.toString()
         var dietIngredients = binding.dietCreIngredientsEditText.text.toString()
-        val diet = Diet(dietName,dietDescription, dietIngredients);
+        val diet = Diet(dietName,dietDescription, dietIngredients, imgName);
         val diets = user!!.listOfDiet
         diets.add(diet)
         val loggedUser = Firebase.auth.currentUser
@@ -121,7 +123,7 @@ class CreateDietActivity : AppCompatActivity() {
         val fileName = formatter.format(now)
         val storageReference  = FirebaseStorage.getInstance().getReference("dietImages/$fileName")
 
-        storageReference.putFile(urimage)
+        storageReference.putFile(urimage!!)
             .addOnSuccessListener {
                 binding.dietCreImage.setImageURI(null)
                 Toast.makeText(this@CreateDietActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()

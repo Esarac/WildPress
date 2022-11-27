@@ -17,7 +17,8 @@ class CreatePostActivity : AppCompatActivity() {
 
     //Binding
     private lateinit var binding : ActivityCreatePostBinding
-    private lateinit var urimage : Uri
+    private var urimage : Uri? = null
+    private var imgName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class CreatePostActivity : AppCompatActivity() {
         //Submit button
         binding.postSubmitBtn.setOnClickListener {
 
-            if(binding.postMainTextArea.text.toString() != ""){
+            if(binding.postMainTextArea.text.toString() != "" && urimage != null){
                 //Post action
                 uploadImage()
             }
@@ -69,10 +70,11 @@ class CreatePostActivity : AppCompatActivity() {
 
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
-        val fileName = formatter.format(now)
+        imgName = formatter.format(now)
+        val fileName = imgName
         val storageReference  =FirebaseStorage.getInstance().getReference("postImages/$fileName")
 
-        storageReference.putFile(urimage)
+        storageReference.putFile(urimage!!)
             .addOnSuccessListener {
                 binding.textViewImage.setText("")
                 Toast.makeText(this@CreatePostActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()

@@ -32,6 +32,7 @@ class CreateExerciseActivity : AppCompatActivity() {
     private lateinit var binding : ActivityCreateExerciseBinding
     private lateinit var user: User
     private var uriImage : Uri? = null
+    private var imgName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,11 +68,10 @@ class CreateExerciseActivity : AppCompatActivity() {
 
     private fun uploadExercise(){
         val user = loadUser()
-        val image = uriImage.toString()
         val exerciseName = binding.exerciseCreNameEditText.text.toString()
         var muscleToTrain = binding.exerciseCreMuscleSpinner.selectedItem.toString()
         var exerciseDescription = binding.exerciseCreDescriptionEditText.text.toString()
-        val exercise = Exercise(image,exerciseName,Muscle.valueOf(muscleToTrain), exerciseDescription);
+        val exercise = Exercise(imgName,exerciseName,Muscle.valueOf(muscleToTrain), exerciseDescription);
         val exercises = user!!.listOfExercise
         exercises.add(exercise)
         val loggedUser = Firebase.auth.currentUser
@@ -130,7 +130,8 @@ class CreateExerciseActivity : AppCompatActivity() {
     private fun uploadImage(){
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
-        val fileName = formatter.format(now)
+        imgName = formatter.format(now)
+        val fileName = imgName
         val storageReference  = FirebaseStorage.getInstance().getReference("exerciseImages/$fileName")
 
         if(uriImage != null){
