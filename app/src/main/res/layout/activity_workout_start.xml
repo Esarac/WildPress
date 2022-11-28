@@ -38,7 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/workoutStartGlobalTimerText"
         android:layout_marginTop="25dp"
-        app:srcCompat="@drawable/ic_google" />
+        app:srcCompat="@drawable/ic_google"/>
 
     <TextView
         android:id="@+id/workoutStartExerciseNameText"

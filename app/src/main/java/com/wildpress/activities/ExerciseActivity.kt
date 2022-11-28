@@ -3,7 +3,6 @@ package com.wildpress.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -73,7 +72,6 @@ class ExerciseActivity : AppCompatActivity() {
                 val userOnDataBase = it.toObject(User::class.java)
                 saveUserLocal(userOnDataBase!!)
             }
-            Toast.makeText(this, exercises.toString(), Toast.LENGTH_SHORT).show()
         }
 
 

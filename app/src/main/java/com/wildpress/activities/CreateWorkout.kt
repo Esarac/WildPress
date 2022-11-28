@@ -84,6 +84,7 @@ class CreateWorkout : AppCompatActivity() {
                 val intent = Intent(this, WorkoutSelectExerciseActivity::class.java)
                 intent.putExtra("workout", workout)
                 startActivity(intent)
+                finish()
             }
             else {
                Toast.makeText(this, message, Toast.LENGTH_LONG).show()

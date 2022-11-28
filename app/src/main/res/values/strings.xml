@@ -39,7 +39,7 @@
     <string name="createDietBtn">Create diet</string>
     <string name="dietsTitle">Your diets</string>
     <!-- Create Diet -->
-    <string name="dietCreDietName">Diet Name</string>
+    <string name="dietCreDietName">Name</string>
     <string name="dietCreDietNameHint">Enter the name of the diet</string>
     <string name="dietCreDescription">Description</string>
     <string name="dietCreDietDescriptionHint">Enter the description of the diet</string>

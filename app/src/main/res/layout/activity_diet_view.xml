@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CreateExerciseActivity">
+    tools:context=".activities.DietViewActivity">
 
     <include
-        android:id="@+id/exerciseViewToolbar"
+        android:id="@+id/dietViewToolbar"
         layout='@layout/toolbar' />
 
 
@@ -19,16 +19,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseViewToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/dietViewToolbar"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/exerciseCreToolbar">
+            android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/exerciseImage"
+                android:id="@+id/dietImage"
                 android:layout_width="fill_parent"
                 android:layout_height="300dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -37,85 +36,64 @@
                 android:background="@color/black"/>
 
             <TextView
-                android:id="@+id/exerciseNameTextView"
+                android:id="@+id/dietNameLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
                 android:layout_marginTop="20dp"
-                android:text="@string/createWorkoutName"
+                android:text="@string/dietCreDietName"
                 android:theme="@style/BlackTitleText"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseImage" />
+                app:layout_constraintTop_toBottomOf="@+id/dietImage" />
 
             <TextView
-                android:id="@+id/exerciseNameText"
+                android:id="@+id/dietNameValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:theme="@style/ProfileTextTitle2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseNameTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/dietNameLabel" />
 
             <TextView
-                android:id="@+id/exerciseDescriptionTextView"
+                android:id="@+id/dietDescriptionLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/exerciseCreDescription"
+                android:text="@string/dietCreDescription"
                 android:theme="@style/BlackTitleText"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseNameText" />
+                app:layout_constraintTop_toBottomOf="@+id/dietNameValue" />
 
             <TextView
-                android:id="@+id/exerciseDescriptionText"
+                android:id="@+id/dietDescriptionValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:theme="@style/ProfileTextTitle2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseDescriptionTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/dietDescriptionLabel" />
 
             <TextView
-                android:id="@+id/exerciseMuscleTextView"
+                android:id="@+id/dietIngredientsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/exerciseViewMuscle"
+                android:text="@string/dietCreIngredients"
                 android:theme="@style/BlackTitleText"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseDescriptionText" />
+                app:layout_constraintTop_toBottomOf="@+id/dietDescriptionValue" />
 
             <TextView
-                android:id="@+id/exerciseMuscleText"
+                android:id="@+id/dietIngredientsValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
                 android:theme="@style/ProfileTextTitle2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseMuscleTextView" />
-
-            <TextView
-                android:id="@+id/exerciseRepetitionsTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/exerciseViewRepetitions"
-                android:theme="@style/BlackTitleText"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseMuscleText" />
-
-            <TextView
-                android:id="@+id/exerciseRepetitionsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="44dp"
-                android:theme="@style/ProfileTextTitle2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exerciseRepetitionsTextView" />
-
+                app:layout_constraintTop_toBottomOf="@+id/dietIngredientsLabel" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Wildpress"
         tools:targetApi="31">
         <activity
-            android:name=".activities.ExerciseView"
+            android:name=".activities.ExerciseViewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -106,6 +106,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".activities.DietViewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

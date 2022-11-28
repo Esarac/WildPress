@@ -3,13 +3,10 @@ package com.wildpress.fragments
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.ktx.auth
@@ -18,23 +15,11 @@ import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.wildpress.R
 import com.wildpress.activities.CreateDietActivity
-import com.wildpress.activities.WorkoutActivity
 import com.wildpress.components.CardRecyclerView
 import com.wildpress.databinding.FragmentDietBinding
 import com.wildpress.model.Diet
 import com.wildpress.model.User
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.wildpress.components.ExerciseRecyclerView
-import com.wildpress.components.Toolbar
-import com.wildpress.databinding.ActivityExerciseBinding
-import com.wildpress.databinding.ActivityWorkoutBinding
-import com.wildpress.model.Exercise
-import com.wildpress.model.Workout
-
-
-
-
+import com.wildpress.activities.DietViewActivity
 
 class Diet : Fragment(R.layout.fragment_diet) {
 
@@ -50,8 +35,6 @@ class Diet : Fragment(R.layout.fragment_diet) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadDiets()
-        //this.diets.add(Diet("Trucha a la plancha", "Diet n1", "Cocinarla"))
-        //this.diets.add(Diet("Batido de proteina", "Diet n2", "Batirlo"))
     }
 
     override fun onCreateView(
@@ -70,7 +53,11 @@ class Diet : Fragment(R.layout.fragment_diet) {
         this.adapter = CardRecyclerView(this.diets)
         this.adapter.setOnItemClickListener(object : CardRecyclerView.onItemClickListener{
             override fun <T> onItemClick(item: T) {
-                Toast.makeText(activity, "The item is: ${item.toString()}", Toast.LENGTH_SHORT).show()
+                val diet = item as Diet
+
+                val intent = Intent(activity, DietViewActivity::class.java)
+                intent.putExtra("diet", diet)
+                startActivity(intent)
             }
         })
         binding.dietRecyclerView.layoutManager = this.layoutManager
@@ -124,6 +111,5 @@ class Diet : Fragment(R.layout.fragment_diet) {
             sp.edit().putString("user", json).apply()
         }
     }
-
 
 }

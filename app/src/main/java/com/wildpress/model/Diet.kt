@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 class Diet(val name: String = "", val description: String = "", val ingredients: String = "", val img: String = ""): Cardable, Parcelable {
 
     override fun getImage(): String {
-        return "https://www.comedera.com/wp-content/uploads/2021/12/ensalada-de-lechuga1.jpg"
+        return img
     }
 
     override fun getTitle(): String {

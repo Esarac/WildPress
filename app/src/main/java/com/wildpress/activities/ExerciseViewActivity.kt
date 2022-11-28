@@ -3,12 +3,14 @@ package com.wildpress.activities
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.wildpress.components.Toolbar
 import com.wildpress.databinding.ActivityExerciseViewBinding
 import com.wildpress.model.Exercise
 
 
-class ExerciseView : AppCompatActivity() {
+class ExerciseViewActivity : AppCompatActivity() {
 
     //Binding
     private lateinit var binding: ActivityExerciseViewBinding
@@ -28,6 +30,7 @@ class ExerciseView : AppCompatActivity() {
         if (exercise != null) {
             this.exercise = exercise;
 
+            Glide.with(this).load(this.exercise.image).centerCrop().into(binding.exerciseImage)
             binding.exerciseNameText.text = this.exercise.name
             binding.exerciseDescriptionText.text = this.exercise.description
             binding.exerciseMuscleText.text = this.exercise.muscle.toString()

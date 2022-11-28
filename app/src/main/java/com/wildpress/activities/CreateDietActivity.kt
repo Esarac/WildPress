@@ -27,8 +27,7 @@ class CreateDietActivity : AppCompatActivity() {
     //Binding
     private lateinit var binding : ActivityCreateDietBinding
     private lateinit var user: User
-    private var urimage : Uri? = null
-    private var imgName: String = ""
+    private var uriImage : Uri? = null
 
     override fun onCreate(savedInstanceStat: Bundle?) {
         super.onCreate(savedInstanceStat)
@@ -41,7 +40,7 @@ class CreateDietActivity : AppCompatActivity() {
 
         //Listeners
         binding.dietCreSubmitBtn.setOnClickListener {
-            if(urimage != null){
+            if(uriImage != null){
                 uploadImage()
                 uploadDiet()
             }
@@ -63,7 +62,7 @@ class CreateDietActivity : AppCompatActivity() {
         val dietName = binding.dietCreNameEditText.text.toString()
         var dietDescription = binding.dietCreDescriptionEditTex.text.toString()
         var dietIngredients = binding.dietCreIngredientsEditText.text.toString()
-        val diet = Diet(dietName,dietDescription, dietIngredients, imgName);
+        val diet = Diet(dietName,dietDescription, dietIngredients, uriImage.toString());
         val diets = user!!.listOfDiet
         diets.add(diet)
         val loggedUser = Firebase.auth.currentUser
@@ -111,8 +110,8 @@ class CreateDietActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 100 && resultCode == RESULT_OK){
-            urimage = data?.data!!
-            binding.dietCreImage.setImageURI(urimage)
+            uriImage = data?.data!!
+            binding.dietCreImage.setImageURI(uriImage)
         }
     }
 
@@ -123,13 +122,14 @@ class CreateDietActivity : AppCompatActivity() {
         val fileName = formatter.format(now)
         val storageReference  = FirebaseStorage.getInstance().getReference("dietImages/$fileName")
 
-        storageReference.putFile(urimage!!)
+        if(uriImage!= null) storageReference.putFile(uriImage!!)
             .addOnSuccessListener {
                 binding.dietCreImage.setImageURI(null)
-                Toast.makeText(this@CreateDietActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()
-                onSupportNavigateUp()
+//                Toast.makeText(this@CreateDietActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()
+                finish()
             }.addOnFailureListener{
-                Toast.makeText(this@CreateDietActivity, "Failed to upload", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@CreateDietActivity, "Failed to upload", Toast.LENGTH_SHORT).show()
             }
+
     }
 }

@@ -12,9 +12,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.wildpress.activities.ExerciseView
+import com.wildpress.activities.ExerciseViewActivity
 import com.wildpress.model.Exercise
 
 class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? = null, select: Boolean? = false, readyBtn: Button? = null, context: Context? = null) : RecyclerView.Adapter<ExerciseRecyclerView.ExerciseViewHolder>(){
@@ -96,10 +95,9 @@ class ExerciseRecyclerView(exercises: ArrayList<Exercise>, selected: TextView? =
                 select(item, viewHolder, i)
             }
             else if(!selectMode && !item.selected) {
-                val intent = Intent(this.context, ExerciseView::class.java)
+                val intent = Intent(this.context, ExerciseViewActivity::class.java)
                 intent.putExtra("exercise", exercises[i])
                 context?.startActivity(intent)
-                Toast.makeText(context, exercises[i].name, Toast.LENGTH_LONG).show()
             }
             else {
                 unSelect(item, viewHolder, i)
